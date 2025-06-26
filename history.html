@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>History | UrbanStep</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Primary color: A deep, rich blue / Charcoal
+                        primary: "#1A202C", 
+                        // Secondary: A soft, muted gray-blue
+                        secondary: "#4A5568", 
+                        // Accent: A vibrant, electric lime green for pop
+                        accent: "#00FF00", 
+                        // Backgrounds and text
+                        light_bg: "#E2E8F0", // Light Blue-Gray for main body background
+                        dark_text: "#2D3748", // Darker Gray for general text
+                        white_text_soft: "#CBD5E0", // Soft white for text on dark backgrounds
+                    },
+                },
+            },
+        };
+    </script>
+    <link rel="icon" href="Image/Hero.png" type="image/png" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        /* Custom Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-in-up { animation: slideInUp 0.6s ease-out forwards; }
+    </style>
+</head>
+<body class="bg-light_bg text-dark_text">
+    <header class="bg-primary text-white shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-accent text-3xl font-bold">UrbanStep</a>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="hover:text-accent transition-colors duration-200">Home</a></li>
+                    <li><a href="artikel.html" class="hover:text-accent transition-colors duration-200">Artikel</a></li>
+                    <li><a href="produk.html" class="hover:text-accent transition-colors duration-200">Produk</a></li>
+                    <li><a href="keranjang.html" class="hover:text-accent transition-colors duration-200">Keranjang</a></li>
+                    <li>
+                        <a href="history.html" class="text-accent flex items-center transition-colors duration-200">
+                            History Pembayaran
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="login.html" class="hover:text-accent transition-colors duration-200">Login</a>
+                <a href="dashboard.html" class="hover:text-accent transition-colors duration-200"><i class="fa-solid fa-user-tie text-white"></i></a>
+                <button id="mobile-menu-button" class="md:hidden text-white hover:text-accent transition-colors duration-200">
+                    <i class="fas fa-bars h-6 w-6"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <ul class="bg-primary px-4 py-2 text-white">
+                <li><a href="index.html" class="block py-2 hover:text-accent transition-colors duration-200">Home</a></li>
+                <li><a href="artikel.html" class="block py-2 hover:text-accent transition-colors duration-200">Artikel</a></li>
+                <li><a href="produk.html" class="block py-2 hover:text-accent transition-colors duration-200">Produk</a></li>
+                <li><a href="keranjang.html" class="block py-2 hover:text-accent transition-colors duration-200">Keranjang</a></li>
+                <li><a href="history.html" class="block py-2 hover:text-accent transition-colors duration-200">History Pembayaran</a></li>
+                <li><a href="login.html" class="block py-2 hover:text-accent transition-colors duration-200">Login</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section 
+        class="relative h-96 bg-cover bg-center flex items-center justify-center" 
+        style="background-image: url('https://img.spartoo.eu/branding/U10652_responsive/images/main.jpg');"
+        data-aos="fade-down" data-aos-duration="1000"
+    >
+        <div class="absolute inset-0 bg-primary opacity-70"></div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl font-bold mb-4 text-white">History Pembayaran</h1>
+            <p class="text-xl text-white">Lihat semua transaksi Anda</p>
+        </div>
+    </section>
+
+    <div class="container mx-auto px-4 py-8">
+      <div class="flex justify-center mb-8">
+          <div class="flex items-center flex-wrap justify-center gap-x-4 gap-y-2 animate-fade-in">
+              <div class="flex flex-col items-center">
+                  <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center">
+                      <i class="fas fa-check h-6 w-6"></i> </div>
+                  <span class="text-sm mt-2 text-dark_text">Keranjang</span>
+              </div>
+              <div class="h-1 w-16 bg-primary mx-2 hidden sm:block"></div>
+              <div class="flex flex-col items-center">
+                  <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center">
+                      <i class="fas fa-check h-6 w-6"></i> </div>
+                  <span class="text-sm mt-2 text-dark_text">Pembayaran</span>
+              </div>
+              <div class="h-1 w-16 bg-primary mx-2 hidden sm:block"></div> <div class="flex flex-col items-center">
+                  <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center">
+                      <i class="fas fa-check h-6 w-6"></i> </div>
+                  <span class="text-sm mt-2 text-dark_text">Konfirmasi</span>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="container mx-auto px-4 py-12 bg-light_bg">
+      <h1 class="text-3xl font-bold mb-8 text-center text-primary">History Pembayaran</h1>
+      <div class="bg-white rounded-xl shadow-xl p-4 md:p-6 overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead>
+            <tr>
+              <th class="px-4 md:px-6 py-3 text-left text-xs font-bold text-secondary uppercase">Tanggal</th>
+              <th class="px-4 md:px-6 py-3 text-left text-xs font-bold text-secondary uppercase">Produk</th>
+              <th class="px-4 md:px-6 py-3 text-left text-xs font-bold text-secondary uppercase">Foto</th>
+              <th class="px-4 md:px-6 py-3 text-left text-xs font-bold text-secondary uppercase">Total</th>
+              <th class="px-4 md:px-6 py-3 text-left text-xs font-bold text-secondary uppercase">Status</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-100">
+            <tr class="hover:bg-secondary/10 transition-colors duration-200">
+              <td class="px-4 md:px-6 py-4 whitespace-nowrap text-dark_text">15 Juni 2025</td>
+              <td class="px-4 md:px-6 py-4 whitespace-nowrap font-semibold text-dark_text">Adidas Handball Spezial</td>
+              <td class="px-4 md:px-6 py-4 whitespace-nowrap">
+                <img src="Image/spezial 1.png" alt="Adidas Handball Spezial" class="w-16 h-16 object-cover rounded-lg border border-gray-200 shadow-sm">
+              </td>
+              <td class="px-4 md:px-6 py-4 whitespace-nowrap text-primary font-bold">Rp 3.599.000</td>
+              <td class="px-4 md:px-6 py-4 whitespace-nowrap">
+                <span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold">Lunas</span>
+              </td>
+            </tr>
+            <tr class="hover:bg-secondary/10 transition-colors duration-200">
+              <td class="px-4 md:px-6 py-4 whitespace-nowrap text-dark_text">10 Juni 2025</td>
+              <td class="px-4 md:px-6 py-4 whitespace-nowrap font-semibold text-dark_text">Adidas Samba OG</td>
+              <td class="px-4 md:px-6 py-4 whitespace-nowrap">
+                <img src="Image/samba 1.png" alt="Adidas Samba OG" class="w-16 h-16 object-cover rounded-lg border border-gray-200 shadow-sm">
+              </td>
+              <td class="px-4 md:px-6 py-4 whitespace-nowrap text-primary font-bold">Rp 2.849.000</td>
+              <td class="px-4 md:px-6 py-4 whitespace-nowrap">
+                <span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold">Lunas</span>
+              </td>
+            </tr>
+            <tr class="hover:bg-secondary/10 transition-colors duration-200">
+              <td class="px-4 md:px-6 py-4 whitespace-nowrap text-dark_text">10 Juni 2025</td>
+              <td class="px-4 md:px-6 py-4 whitespace-nowrap font-semibold text-dark_text">Adidas Gazzele Indoor</td>
+              <td class="px-4 md:px-6 py-4 whitespace-nowrap">
+                <img src="Image/gazzele 1.png" alt="AdidasGazzele Indoor" class="w-16 h-16 object-cover rounded-lg border border-gray-200 shadow-sm">
+              </td>
+              <td class="px-4 md:px-6 py-4 whitespace-nowrap text-primary font-bold">Rp 4.089.000</td>
+              <td class="px-4 md:px-6 py-4 whitespace-nowrap">
+                <span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold">Lunas</span>
+              </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="mt-8 text-center">
+          <a href="produk.html" class="inline-block bg-primary hover:bg-secondary text-white px-6 py-3 rounded-lg font-medium shadow transition-colors duration-200 transform hover:scale-105">Belanja Lagi</a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-primary text-white py-10">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-accent">UrbanStep</h3>
+            <p class="mb-4 text-gray-400">
+              adalah destinasi terbaik untuk kamu yang ingin melangkah lebih
+              jauh. Kami menghadirkan sepatu Adidas original pilihan, untuk
+              penampilan yang lebih casual.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200 transform hover:scale-110">
+                <i class="fab fa-twitter h-6 w-6"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/hfdz24_?igsh=dnFmanMxeThva2t2"
+                class="text-gray-400 hover:text-accent transition-colors duration-200 transform hover:scale-110"
+              >
+                <i class="fab fa-instagram h-6 w-6"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200 transform hover:scale-110">
+                <i class="fab fa-facebook-f h-6 w-6"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-white">Quick Links</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li><a href="index.html" class="hover:text-accent transition-colors duration-200">Home</a></li>
+              <li>
+                <a href="dashboard.html" class="hover:text-accent transition-colors duration-200">Dashboard</a>
+              </li>
+              <li>
+                <a href="artikel.html" class="hover:text-accent transition-colors duration-200">Articles</a>
+              </li>
+              <li>
+                <a href="produk.html" class="hover:text-accent transition-colors duration-200">Products</a>
+              </li>
+              <li>
+                <a href="keranjang.html" class="hover:text-accent transition-colors duration-200">Cart</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-white">Contact Us</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li class="flex items-start">
+                <i class="fa-solid fa-location-dot h-6 w-6 mr-2 flex-shrink-0"></i>
+                <span>Srikana Street, Surabaya, Indonesia</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-envelope h-6 w-6 mr-2 flex-shrink-0"></i>
+                <span>urbnstp@gmail.com</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-phone h-6 w-6 mr-2 flex-shrink-0"></i>
+                <span>081234567890</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-secondary mt-8 pt-8 text-center text-gray-500">
+          <p>&copy; 2025 UrbanStep. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+      });
+    </script>
+</body>
+</html>

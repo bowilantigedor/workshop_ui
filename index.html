@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home | UrbanStep</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              // Primary color: A deep, rich blue
+              primary: "#1A202C", // Dark Slate Blue / Charcoal
+              // Secondary: A soft, muted teal
+              secondary: "#4A5568", // Darker Gray-Blue
+              // Accent: A vibrant, electric lime green for pop
+              accent: "#00FF00", // Electric Lime Green
+              // Backgrounds and text
+              light_bg: "#E2E8F0", // Light Blue-Gray for main body background
+              dark_text: "#2D3748", // Darker Gray for general text
+              white_text_soft: "#CBD5E0", // Soft white for text on dark backgrounds
+            },
+          },
+        },
+      };
+    </script>
+
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link rel="icon" href="Image/Hero.png" type="image/png" />
+    <link rel="stylesheet" href="css/ecommers.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+
+  <body class="bg-light_bg text-dark_text">
+    <header class="bg-primary text-white shadow-lg">
+      <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <a href="index.html" class="text-accent text-3xl font-bold"
+          >UrbanStep</a
+        >
+        <nav class="hidden md:block">
+          <ul class="flex space-x-6">
+            <li><a href="index.html" class="hover:text-accent transition-colors duration-200">Home</a></li>
+            <li>
+              <a href="artikel.html" class="hover:text-accent transition-colors duration-200">Artikel</a>
+            </li>
+            <li><a href="produk.html" class="hover:text-accent transition-colors duration-200">Produk</a></li>
+            <li>
+              <a href="keranjang.html" class="hover:text-accent transition-colors duration-200">Keranjang</a>
+            </li>
+            <li>
+              <a
+                href="history.html"
+                class="hover:text-accent flex items-center transition-colors duration-200"
+                >History Pembayaran</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="flex items-center space-x-4">
+          <a href="login.html" class="hover:text-accent transition-colors duration-200">Login</a>
+          <a href="dashboard.html" class="hover:text-accent transition-colors duration-200"
+            ><i class="fa-solid fa-user-tie"></i
+          ></a>
+          <button id="mobile-menu-button" class="md:hidden text-white hover:text-accent transition-colors duration-200">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden">
+        <ul class="bg-primary px-4 py-2 text-white">
+          <li>
+            <a href="index.html" class="block py-2 hover:text-accent transition-colors duration-200">Home</a>
+          </li>
+          <li>
+            <a href="artikel.html" class="block py-2 hover:text-accent transition-colors duration-200"
+              >Artikel</a
+            >
+          </li>
+          <li>
+            <a href="produk.html" class="block py-2 hover:text-accent transition-colors duration-200"
+              >Produk</a
+            >
+          </li>
+          <li>
+            <a href="keranjang.html" class="block py-2 hover:text-accent transition-colors duration-200"
+              >Keranjang</a
+            >
+          </li>
+          <li>
+            <a href="login.html" class="block py-2 hover:text-accent transition-colors duration-200">Login</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <section
+      class="relative bg-primary bg-center py-16 md:py-20 flex items-center justify-center min-h-[60vh]"
+      style="
+        background-image: url('https://img.spartoo.eu/branding/U10652_responsive/images/main.jpg');
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <div class="absolute inset-0 bg-primary opacity-70"></div>
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+          <div class="w-full md:w-1/2 mb-10 md:mb-0 text-center md:text-left" data-aos="fade-right">
+            <h1
+              class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 text-white drop-shadow-lg"
+            >
+              Welcome to
+              <span class="text-accent animate-pulse">UrbanStep</span>
+            </h1>
+            <p class="text-base sm:text-lg md:text-xl mb-8 text-gray-200 drop-shadow">
+              <span id="typing-text"></span>
+              <span id="typing-cursor" class="animate-pulse">|</span>
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <a
+                href="produk.html"
+                class="bg-accent text-primary px-6 py-3 rounded-md font-medium shadow-lg transform hover:scale-105 transition-all duration-300 text-center hover:bg-accent/80"
+                >Shop Now</a
+              >
+              <a
+                href="artikel.html"
+                class="border border-white text-white px-6 py-3 rounded-md font-medium bg-white/10 backdrop-blur-sm shadow hover:bg-white/20 transition-all duration-300 text-center"
+                >Read Articles</a
+              >
+            </div>
+          </div>
+          <div class="w-full md:w-1/2 flex justify-center" data-aos="fade-left">
+            <img
+              src="Image/logo.png"
+              alt="Hero Image"
+              class="rounded-lg w-60 sm:w-80 md:w-full max-w-sm animate-float"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 md:py-16 bg-light_bg">
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-2xl sm:text-3xl font-bold mb-8 md:mb-10 text-center text-primary"
+          data-aos="fade-up"
+        >
+          Featured Products
+        </h2>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
+        >
+          <div
+            class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 hover:shadow-2xl transition-all duration-300"
+            data-aos="zoom-in"
+          >
+            <img
+              src="Image/spezial 1.png"
+              alt="Product 1"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold mb-2 text-dark_text">Adidas Handball Spezial</h3>
+              <p class="text-gray-600 mb-4">Men's Road Running Shoes</p>
+              <div class="flex justify-between items-center">
+                <span class="text-primary font-bold">Rp 1.700.000</span>
+                <a
+                  href="detail-produk.html"
+                  class="bg-primary text-white px-4 py-2 rounded hover:bg-secondary shadow transition-colors duration-200"
+                  >View</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 hover:shadow-2xl transition-all duration-300"
+            data-aos="zoom-in"
+          >
+            <img
+              src="Image/samba 1.png"
+              alt="Product 2"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold mb-2 text-dark_text">Adidas Samba OG</h3>
+              <p class="text-gray-600 mb-4">Men's Road Running Shoes</p>
+              <div class="flex justify-between items-center">
+                <span class="text-primary font-bold">Rp 1.760.000</span>
+                <a
+                  href="detail-produk.html"
+                  class="bg-primary text-white px-4 py-2 rounded hover:bg-secondary shadow transition-colors duration-200"
+                  >View</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 hover:shadow-2xl transition-all duration-300"
+            data-aos="zoom-in"
+          >
+            <img
+              src="Image/gazzele 2.png"
+              alt="Product 3"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold mb-2 text-dark_text">Adidas Gazzele Indoor</h3>
+              <p class="text-gray-600 mb-4">Men's Road Running Shoes</p>
+              <div class="flex justify-between items-center">
+                <span class="text-primary font-bold">Rp 1.800.000</span>
+                <a
+                  href="detail-produk.html"
+                  class="bg-primary text-white px-4 py-2 rounded hover:bg-secondary shadow transition-colors duration-200"
+                  >View</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 hover:shadow-2xl transition-all duration-300"
+            data-aos="zoom-in"
+          >
+            <img
+              src="Image/adidas 1.png"
+              alt="Product 4"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold mb-2 text-dark_text">Adidas Barreda Decode</h3>
+              <p class="text-gray-600 mb-4">Men's Road Running Shoes</p>
+              <div class="flex justify-between items-center">
+                <span class="text-primary font-bold">Rp 1.300.000</span>
+                <a
+                  href="detail-produk.html"
+                  class="bg-primary text-white px-4 py-2 rounded hover:bg-secondary shadow transition-colors duration-200"
+                  >View</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-8 md:mt-10" data-aos="fade-up">
+          <a
+            href="produk.html"
+            class="bg-primary text-white px-6 py-3 rounded-md font-medium shadow-lg transform hover:scale-105 transition-all duration-300"
+            >View All Products</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 md:py-16 bg-primary text-white">
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-2xl sm:text-3xl font-bold mb-8 md:mb-10 text-center text-accent"
+          data-aos="fade-up"
+        >
+          Latest Articles
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div
+            class="bg-secondary rounded-xl shadow-xl overflow-hidden transform hover:scale-105 hover:shadow-2xl transition-all duration-300"
+            data-aos="fade-up"
+          >
+            <img
+              src="Image/bg.png"
+              alt="Article 1"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold mb-2 text-white">Article Title</h3>
+              <p class="text-white_text_soft mb-2">May 15, 2023</p>
+              <p class="text-white_text_soft mb-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <a
+                href="detail-artikel.html"
+                class="text-accent font-medium hover:underline transition-colors duration-200"
+                >Read More</a
+              >
+            </div>
+          </div>
+
+          <div
+            class="bg-secondary rounded-xl shadow-xl overflow-hidden transform hover:scale-105 hover:shadow-2xl transition-all duration-300"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <img
+              src="Image/adidas 5.png"
+              alt="Article 2"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold mb-2 text-white">Article Title</h3>
+              <p class="text-white_text_soft mb-2">May 10, 2025</p>
+              <p class="text-white_text_soft mb-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <a
+                href="detail-artikel.html"
+                class="text-accent font-medium hover:underline transition-colors duration-200"
+                >Read More</a
+              >
+            </div>
+          </div>
+
+          <div
+            class="bg-secondary rounded-xl shadow-xl overflow-hidden transform hover:scale-105 hover:shadow-2xl transition-all duration-300"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <img
+              src="Image/adidas 4.png"
+              alt="Article 3"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold mb-2 text-white">Article Title</h3>
+              <p class="text-white_text_soft mb-2">May 5, 2023</p>
+              <p class="text-white_text_soft mb-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <a
+                href="detail-artikel.html"
+                class="text-accent font-medium hover:underline transition-colors duration-200"
+                >Read More</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-8 md:mt-10" data-aos="fade-up">
+          <a
+            href="artikel.html"
+            class="bg-accent text-primary px-6 py-3 rounded-md font-medium shadow-lg transform hover:scale-105 transition-all duration-300 hover:bg-accent/80"
+            >View All Articles</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="py-12 md:py-16 bg-gradient-to-r from-light_bg to-gray-200"
+    >
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-2xl sm:text-3xl font-bold mb-8 md:mb-10 text-center text-primary"
+          data-aos="fade-up"
+        >
+          Kenapa Pilih UrbanStep?
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div
+            class="bg-white rounded-xl shadow-xl p-8 flex flex-col items-center text-center hover:shadow-2xl transition-all duration-300"
+            data-aos="flip-left"
+          >
+            <div class="bg-primary/10 rounded-full p-4 mb-4">
+              <svg
+                class="h-10 w-10 text-primary"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 8c-1.657 0-3 1.343-3 3 0 1.657 1.343 3 3 3s3-1.343 3-3c0-1.657-1.343-3-3-3zm0 0V4m0 7v9m0 0H7m5 0h5"
+                />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-dark_text">Produk Original</h3>
+            <p class="text-gray-600">
+              Semua produk dijamin 100% original dan berkualitas tinggi langsung
+              dari Adidas.
+            </p>
+          </div>
+          <div
+            class="bg-white rounded-xl shadow-xl p-8 flex flex-col items-center text-center hover:shadow-2xl transition-all duration-300"
+            data-aos="flip-up"
+            data-aos-delay="100"
+          >
+            <div class="bg-primary/10 rounded-full p-4 mb-4">
+              <svg
+                class="h-10 w-10 text-primary"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3 10h1l2 9a1 1 0 001 1h10a1 1 0 001-1l2-9h1"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M16 6a4 4 0 01-8 0"
+                />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-dark_text">Pengiriman Cepat</h3>
+            <p class="text-gray-600">
+              Pesanan Anda akan diproses dan dikirim dengan cepat ke seluruh
+              Indonesia.
+            </p>
+          </div>
+          <div
+            class="bg-white rounded-xl shadow-xl p-8 flex flex-col items-center text-center hover:shadow-2xl transition-all duration-300"
+            data-aos="flip-right"
+            data-aos-delay="200"
+          >
+            <div class="bg-primary/10 rounded-full p-4 mb-4">
+              <svg
+                class="h-10 w-10 text-primary"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17 9V7a5 5 0 00-10 0v2a2 2 0 00-2 2v7a2 2 0 002 2h10a2 2 0 002-2v-7a2 2 0 00-2-2z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 17v.01"
+                />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-dark_text">Pembayaran Aman</h3>
+            <p class="text-gray-600">
+              Transaksi Anda dijamin aman dengan berbagai metode pembayaran
+              terpercaya.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 md:py-16 bg-secondary text-white">
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-2xl sm:text-3xl font-bold mb-8 md:mb-10 text-center text-accent"
+          data-aos="fade-up"
+        >
+          Testimoni Pelanggan
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div
+            class="bg-primary rounded-xl shadow-xl p-8 flex flex-col items-center text-center hover:shadow-2xl transition-all duration-300"
+            data-aos="fade-up"
+          >
+            <img
+              src="https://randomuser.me/api/portraits/men/32.jpg"
+              alt="User 1"
+              class="w-20 h-20 rounded-full mb-4 border-4 border-accent/30 object-cover"
+            />
+            <h4 class="font-semibold text-lg mb-1 text-white">Rizky Maulana</h4>
+            <span class="text-accent text-sm mb-2">Pelajar</span>
+            <p class="text-white_text_soft mb-2">
+              "Sepatu Adidas dari UrbanStep nyaman banget dipakai sehari hari.
+              Pengiriman cepat dan packing rapi!"
+            </p>
+            <div class="flex space-x-1 text-yellow-500 mb-2">
+              <i class="fa fa-star"></i><i class="fa fa-star"></i
+              ><i class="fa fa-star"></i><i class="fa fa-star"></i
+              ><i class="fa fa-star"></i>
+            </div>
+          </div>
+          <div
+            class="bg-primary rounded-xl shadow-xl p-8 flex flex-col items-center text-center hover:shadow-2xl transition-all duration-300"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <img
+              src="https://randomuser.me/api/portraits/women/44.jpg"
+              alt="User 2"
+              class="w-20 h-20 rounded-full mb-4 border-4 border-accent/30 object-cover"
+            />
+            <h4 class="font-semibold text-lg mb-1 text-white">Linda Rahmawati</h4>
+            <span class="text-accent text-sm mb-2">Mahasiswi</span>
+            <p class="text-white_text_soft mb-2">
+              "Pelayanan sangat ramah, produk original, dan harga bersaing.
+              Pasti order lagi di sini!"
+            </p>
+            <div class="flex space-x-1 text-yellow-500 mb-2">
+              <i class="fa fa-star"></i><i class="fa fa-star"></i
+              ><i class="fa fa-star"></i><i class="fa fa-star"></i
+              ><i class="fa-solid fa-star-half-stroke"></i>
+            </div>
+          </div>
+          <div
+            class="bg-primary rounded-xl shadow-xl p-8 flex flex-col items-center text-center hover:shadow-2xl transition-all duration-300"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <img
+              src="https://randomuser.me/api/portraits/men/65.jpg"
+              alt="User 3"
+              class="w-20 h-20 rounded-full mb-4 border-4 border-accent/30 object-cover"
+            />
+            <h4 class="font-semibold text-lg mb-1 text-white">Budi Santoso</h4>
+            <span class="text-accent text-sm mb-2">Pekerja Kantoran</span>
+            <p class="text-white_text_soft mb-2">
+              "Transaksi aman, banyak pilihan sepatu, dan sering ada promo
+              menarik. Rekomendasi banget!"
+            </p>
+            <div class="flex space-x-1 text-yellow-500 mb-2">
+              <i class="fa fa-star"></i><i class="fa fa-star"></i
+              ><i class="fa fa-star"></i><i class="fa fa-star"></i
+              ><i class="fa fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-primary text-white py-10">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-accent">UrbanStep</h3>
+            <p class="mb-4 text-gray-400">
+              adalah destinasi terbaik untuk kamu yang ingin melangkah lebih
+              jauh. Kami menghadirkan sepatu Adidas original pilihan, untuk
+              penampilan yang lebih casual.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200 transform hover:scale-110">
+                <i class="fab fa-twitter h-6 w-6"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/hfdz24_?igsh=dnFmanMxeThva2t2"
+                class="text-gray-400 hover:text-accent transition-colors duration-200 transform hover:scale-110"
+              >
+                <i class="fab fa-instagram h-6 w-6"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200 transform hover:scale-110">
+                <i class="fab fa-facebook-f h-6 w-6"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-white">Quick Links</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li><a href="index.html" class="hover:text-accent transition-colors duration-200">Home</a></li>
+              <li>
+                <a href="dashboard.html" class="hover:text-accent transition-colors duration-200">Dashboard</a>
+              </li>
+              <li>
+                <a href="artikel.html" class="hover:text-accent transition-colors duration-200">Articles</a>
+              </li>
+              <li>
+                <a href="produk.html" class="hover:text-accent transition-colors duration-200">Products</a>
+              </li>
+              <li>
+                <a href="keranjang.html" class="hover:text-accent transition-colors duration-200">Cart</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-white">Contact Us</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li class="flex items-start">
+                <i class="fa-solid fa-location-dot h-6 w-6 mr-2 flex-shrink-0"></i>
+                <span>Srikana Street, Surabaya, Indonesia</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-envelope h-6 w-6 mr-2 flex-shrink-0"></i>
+                <span>urbnstp@gmail.com</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-phone h-6 w-6 mr-2 flex-shrink-0"></i>
+                <span>081234567890</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-secondary mt-8 pt-8 text-center text-gray-500">
+          <p>&copy; 2025 UrbanStep. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        once: true,
+        duration: 1000,
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        if (mobileMenuButton && mobileMenu) {
+          mobileMenuButton.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+          });
+        }
+
+        // Typing Effect
+        const text = "From the edges of the sporting world to the frontlines of culture. Vintage in style. Progressive in essence.";
+        const typingText = document.getElementById("typing-text");
+        const cursor = document.getElementById("typing-cursor");
+        let idx = 0;
+        let isDeleting = false;
+
+        function typeWriter() {
+          if (!isDeleting && idx <= text.length) {
+            typingText.textContent = text.slice(0, idx);
+            idx++;
+            setTimeout(typeWriter, 35);
+          } else if (isDeleting && idx >= 0) {
+            typingText.textContent = text.slice(0, idx);
+            idx--;
+            setTimeout(typeWriter, 20);
+          } else {
+            isDeleting = !isDeleting;
+            setTimeout(typeWriter, isDeleting ? 1000 : 500);
+          }
+        }
+
+        // Blinking cursor effect (moved from <style> to here for single file)
+        const style = document.createElement("style");
+        style.innerHTML = `
+          @keyframes blink { 0%,100% { opacity: 1 } 50% { opacity: 0 } }
+          #typing-cursor { display: inline-block; animation: blink 1s infinite; } /* Added animation to CSS */
+        `;
+        document.head.appendChild(style);
+
+        setTimeout(typeWriter, 500);
+      });
+    </script>
+  </body>
+</html>

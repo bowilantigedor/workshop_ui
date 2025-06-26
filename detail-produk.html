@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Produk | UrbanStep</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Primary color: A deep, rich blue / Charcoal
+                        primary: "#1A202C", 
+                        // Secondary: A soft, muted gray-blue
+                        secondary: "#4A5568", 
+                        // Accent: A vibrant, electric lime green for pop
+                        accent: "#00FF00", 
+                        // Backgrounds and text
+                        light_bg: "#E2E8F0", // Light Blue-Gray for main body background
+                        dark_text: "#2D3748", // Darker Gray for general text
+                        white_text_soft: "#CBD5E0", // Soft white for text on dark backgrounds
+                    },
+                },
+            },
+        };
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="Image/Hero.png" type="image/png" />
+</head>
+<body class="bg-light_bg text-dark_text">
+    <header class="bg-primary text-white shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-accent text-3xl font-bold">UrbanStep</a>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="hover:text-accent transition-colors duration-200">Home</a></li>
+                    <li><a href="artikel.html" class="hover:text-accent transition-colors duration-200">Artikel</a></li>
+                    <li><a href="produk.html" class="text-accent transition-colors duration-200">Produk</a></li>
+                    <li><a href="keranjang.html" class="hover:text-accent transition-colors duration-200">Keranjang</a></li>
+                    <li>
+                        <a href="history.html" class="hover:text-accent flex items-center transition-colors duration-200">History Pembayaran</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="keranjang.html" class="relative hover:text-accent transition-colors duration-200">
+                    <i class="fas fa-shopping-cart h-6 w-6"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-accent text-primary_text text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </a>
+                <a href="login.html" class="hover:text-accent transition-colors duration-200">Login</a>
+                <a href="dashboard.html" class="hover:text-accent transition-colors duration-200"><i class="fa-solid fa-user-tie text-white"></i></a>
+                <button id="mobile-menu-button" class="md:hidden text-white hover:text-accent transition-colors duration-200">
+                    <i class="fas fa-bars h-6 w-6"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <ul class="bg-primary px-4 py-2 text-white">
+                <li><a href="index.html" class="block py-2 hover:text-accent transition-colors duration-200">Home</a></li>
+                <li><a href="artikel.html" class="block py-2 hover:text-accent transition-colors duration-200">Artikel</a></li>
+                <li><a href="produk.html" class="block py-2 hover:text-accent transition-colors duration-200">Produk</a></li>
+                <li><a href="keranjang.html" class="block py-2 hover:text-accent transition-colors duration-200">Keranjang</a></li>
+                <li><a href="history.html" class="block py-2 hover:text-accent transition-colors duration-200">History Pembayaran</a></li>
+                <li><a href="login.html" class="block py-2 hover:text-accent transition-colors duration-200">Login</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="py-12 bg-light_bg">
+      <div class="container mx-auto px-4">
+        <nav class="flex mb-8 text-sm text-dark_text">
+          <ol class="flex items-center space-x-2">
+            <li>
+              <a href="index.html" class="text-gray-500 hover:text-primary transition-colors duration-200"
+                >Home</a
+              >
+            </li>
+            <li class="flex items-center space-x-2">
+              <i class="fas fa-chevron-right text-gray-500 text-xs"></i>
+              <a href="produk.html" class="text-gray-500 hover:text-primary transition-colors duration-200"
+                >Produk</a
+              >
+            </li>
+            <li class="flex items-center space-x-2">
+              <i class="fas fa-chevron-right text-gray-500 text-xs"></i>
+              <span class="text-primary">Adidas Handball Spezial</span>
+            </li>
+          </ol>
+        </nav>
+
+        <div class="bg-white rounded-xl shadow-xl overflow-hidden">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-6">
+            <div>
+              <div class="mb-4">
+                <img
+                  id="main-image"
+                  src="Image/spezial 1.png"
+                  alt="Adidas Handball Spezial"
+                  class="w-full h-auto rounded-lg shadow-md"
+                />
+              </div>
+              <div class="grid grid-cols-4 gap-2">
+                <button
+                  class="thumbnail-btn border-2 border-primary rounded-md overflow-hidden hover:border-accent transition-colors duration-200"
+                  data-img-src="Image/spezial 1.png"
+                >
+                  <img
+                    src="Image/spezial 1.png"
+                    alt="Thumbnail 1"
+                    class="w-full h-auto"
+                  />
+                </button>
+                <button
+                  class="thumbnail-btn border-2 border-gray-300 rounded-md overflow-hidden hover:border-accent transition-colors duration-200"
+                  data-img-src="Image/spezial 1.2.png"
+                >
+                  <img
+                    src="Image/spezial 1.2.png"
+                    alt="Thumbnail 2"
+                    class="w-full h-auto"
+                  />
+                </button>
+                <button
+                  class="thumbnail-btn border-2 border-gray-300 rounded-md overflow-hidden hover:border-accent transition-colors duration-200"
+                  data-img-src="Image/spezial 1.3.png"
+                >
+                  <img
+                    src="Image/spezial 1.3.png"
+                    alt="Thumbnail 3"
+                    class="w-full h-auto"
+                  />
+                </button>
+                <button
+                  class="thumbnail-btn border-2 border-gray-300 rounded-md overflow-hidden hover:border-accent transition-colors duration-200"
+                  data-img-src="Image/spezial 1.4.png"
+                >
+                  <img
+                    src="Image/spezial 1.4.png"
+                    alt="Thumbnail 4"
+                    class="w-full h-auto"
+                  />
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <div class="mb-4">
+                <span
+                  class="inline-block bg-primary text-white text-xs font-bold px-2 py-1 rounded mb-2"
+                  >New</span
+                >
+                <h1 class="text-3xl font-bold mb-2 text-primary">
+                  Adidas Handball Spezial
+                </h1>
+                <div class="flex items-center mb-2">
+                  <div class="flex text-yellow-500 mr-2">
+                    <i class="fas fa-star h-5 w-5"></i>
+                    <i class="fas fa-star h-5 w-5"></i>
+                    <i class="fas fa-star h-5 w-5"></i>
+                    <i class="fas fa-star h-5 w-5"></i>
+                    <i class="fas fa-star-half-alt h-5 w-5"></i>
+                  </div>
+                  <span class="text-gray-600">4.8 (120 reviews)</span>
+                </div>
+                <div class="mb-4">
+                  <span class="text-3xl font-bold text-primary"
+                    >Rp 2.849.000</span
+                  >
+                  <span class="text-lg text-gray-500 line-through ml-2"
+                    >Rp 3.165.555,56</span
+                  >
+                  <span class="text-accent ml-2">10% OFF</span>
+                </div>
+                <p class="text-gray-600 mb-6">
+                  Pertama kali diperkenalkan pada tahun 1979 untuk pemain bola tangan elit, sepatu ini kini digemari karena gayanya yang klasik. Versi ini dibuat dengan bagian atas suede nubuck agar terasa lentur. Sol luar karet lunak membuatnya tetap mempertahankan ciri khas vintage-nya.
+                </p>
+                <p class="text-gray-600 mb-2">
+                  Warna yang Ditampilkan: Blue/White/Beige [BD7632]
+                </p>
+                <p class="text-gray-600 mb-2">Gaya: HQ3043-200</p>
+                <p class="text-gray-600">Negara/Region Asal: Vietnam</p>
+              </div>
+
+              <div class="mb-6">
+                <h3 class="text-lg font-semibold mb-3 text-dark_text">Ukuran</h3>
+                <div class="flex flex-wrap gap-3">
+                  <button
+                    class="px-4 py-2 border-2 border-gray-300 rounded-md text-gray-700 hover:border-accent hover:text-accent transition-colors duration-200"
+                  >
+                    37
+                  </button>
+                  <button
+                    class="px-4 py-2 border-2 border-primary rounded-md text-primary font-medium hover:border-accent hover:text-accent transition-colors duration-200"
+                  >
+                    38
+                  </button>
+                  <button
+                    class="px-4 py-2 border-2 border-gray-300 rounded-md text-gray-700 hover:border-accent hover:text-accent transition-colors duration-200"
+                  >
+                    39
+                  </button>
+                  <button
+                    class="px-4 py-2 border-2 border-gray-300 rounded-md text-gray-700 hover:border-accent hover:text-accent transition-colors duration-200"
+                  >
+                    40
+                  </button>
+                  <button
+                    class="px-4 py-2 border-2 border-gray-300 rounded-md text-gray-700 hover:border-accent hover:text-accent transition-colors duration-200"
+                  >
+                    41
+                  </button>
+                </div>
+              </div>
+
+              <div class="mb-6">
+                <h3 class="text-lg font-semibold mb-3 text-dark_text">Jumlah</h3>
+                <div class="flex items-center">
+                  <button
+                    id="decrease-qty"
+                    class="w-10 h-10 bg-gray-200 rounded-l-md flex items-center justify-center hover:bg-gray-300 transition-colors duration-200"
+                  >
+                    <i class="fas fa-minus h-5 w-5 text-gray-700"></i>
+                  </button>
+                  <input
+                    type="number"
+                    id="quantity"
+                    value="1"
+                    min="1"
+                    class="w-16 h-10 border-y border-gray-300 text-center text-dark_text focus:outline-none focus:ring-1 focus:ring-primary"
+                  />
+                  <button
+                    id="increase-qty"
+                    class="w-10 h-10 bg-gray-200 rounded-r-md flex items-center justify-center hover:bg-gray-300 transition-colors duration-200"
+                  >
+                    <i class="fas fa-plus h-5 w-5 text-gray-700"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="flex flex-col sm:flex-row gap-4">
+                <button
+                  id="add-to-cart"
+                  class="flex-1 bg-primary hover:bg-secondary text-white py-3 px-6 rounded-md font-medium flex items-center justify-center w-full transition-colors duration-200 transform hover:scale-105"
+                >
+                  <i class="fas fa-shopping-cart h-5 w-5 mr-2"></i>
+                  Tambah ke Keranjang
+                </button>
+                <button
+                  class="flex-1 bg-secondary hover:bg-primary text-white py-3 px-6 rounded-md font-medium flex items-center justify-center w-full transition-colors duration-200 transform hover:scale-105"
+                >
+                  Beli Sekarang
+                </button>
+              </div>
+
+              <div class="mt-8 border-t border-gray-200 pt-6">
+                <div class="flex flex-wrap gap-x-4 gap-y-2">
+                  <div class="flex items-center text-gray-600">
+                    <i class="fas fa-shipping-fast h-5 w-5 mr-2"></i>
+                    <span>Pengiriman 1-3 hari</span>
+                  </div>
+                  <div class="flex items-center text-gray-600">
+                    <i class="fas fa-shield-alt h-5 w-5 mr-2"></i>
+                    <span>Pengiriman Aman</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="border-t border-gray-200 mt-8">
+            <div class="flex border-b border-gray-200">
+              <button
+                class="tab-btn active px-6 py-4 text-primary border-b-2 border-primary font-medium hover:text-accent hover:border-accent transition-colors duration-200"
+                data-target="description"
+              >
+                Deskripsi
+              </button>
+              <button
+                class="tab-btn px-6 py-4 text-gray-600 hover:text-primary hover:border-primary border-b-2 border-transparent font-medium transition-colors duration-200"
+                data-target="reviews"
+              >
+                Ulasan (120)
+              </button>
+            </div>
+
+            <div class="p-6">
+              <div id="tab-description" class="tab-content">
+                <h3 class="text-xl font-semibold mb-4 text-dark_text">Deskripsi Produk</h3>
+                <div class="prose max-w-none text-gray-600">
+                  <p class="mb-4">
+                    Pertama kali diperkenalkan pada tahun 1979 untuk pemain bola tangan elit, sepatu ini kini digemari karena gayanya yang klasik. Versi ini dibuat dengan bagian atas suede nubuck agar terasa lentur. Sol luar karet lunak membuatnya tetap mempertahankan ciri khas vintage-nya.
+                  </p>
+                  <p class="mb-4">
+                    Masuki gaya abadi dengan Adidas Spezial, perpaduan antara warisan dan desain kontemporer. Sepatu kets ini memberi penghormatan kepada mode olahraga ikonik, memadukan gaya retro dengan kenyamanan modern. Dibuat dengan bahan premium, Adidas Spezial menawarkan ekspresi unik dari individualitas dan keaslian.
+                  </p>
+                  <p class="mb-4">
+                    Adidas AG adalah perusahaan pakaian dan alas kaki atletik asal Jerman yang berkantor pusat di Herzogenaurach, Bavaria, Jerman. Perusahaan ini merupakan produsen pakaian olahraga terbesar di Eropa, dan terbesar kedua di dunia, setelah Nike. Perusahaan ini merupakan perusahaan induk bagi Adidas Group, yang juga memiliki 8,33% saham klub sepak bola Bayern Munich, dan Runtastic, perusahaan teknologi kebugaran asal Austria. Pendapatan Adidas untuk tahun 2024 tercatat sebesar €23 miliar
+                  </p>
+                </div>
+              </div>
+
+              <div id="tab-reviews" class="tab-content hidden">
+                <div class="flex flex-col md:flex-row gap-8">
+                  <div class="md:w-1/3">
+                    <h3 class="text-xl font-semibold mb-4 text-dark_text">Ulasan Pelanggan</h3>
+                    <div class="flex items-center mb-4">
+                      <div class="flex text-yellow-500 mr-2">
+                        <i class="fas fa-star h-6 w-6"></i>
+                        <i class="fas fa-star h-6 w-6"></i>
+                        <i class="fas fa-star h-6 w-6"></i>
+                        <i class="fas fa-star h-6 w-6"></i>
+                        <i class="fas fa-star-half-alt h-6 w-6"></i>
+                      </div>
+                      <span class="text-lg font-semibold text-dark_text">4.8 dari 5</span>
+                    </div>
+                    <p class="text-gray-600 mb-2">Berdasarkan 120 ulasan</p>
+                  </div>
+                  <div class="md:w-2/3 space-y-6">
+                    <div class="border-b border-gray-200 pb-4">
+                      <div class="flex justify-between items-center mb-2">
+                        <div class="font-semibold text-dark_text">Rizky Maulana</div>
+                        <div class="flex text-yellow-500">
+                          <i class="fas fa-star h-4 w-4"></i><i class="fas fa-star h-4 w-4"></i><i class="fas fa-star h-4 w-4"></i><i class="fas fa-star h-4 w-4"></i><i class="fas fa-star h-4 w-4"></i>
+                        </div>
+                      </div>
+                      <p class="text-gray-500 text-sm mb-2">18 Juni 2025</p>
+                      <p class="text-gray-700">"Sepatunya nyaman banget dan desainnya klasik. Cocok untuk dipakai sehari-hari."</p>
+                    </div>
+                    <div class="border-b border-gray-200 pb-4">
+                      <div class="flex justify-between items-center mb-2">
+                        <div class="font-semibold text-dark_text">Linda Rahmawati</div>
+                        <div class="flex text-yellow-500">
+                          <i class="fas fa-star h-4 w-4"></i><i class="fas fa-star h-4 w-4"></i><i class="fas fa-star h-4 w-4"></i><i class="fas fa-star h-4 w-4"></i><i class="far fa-star h-4 w-4"></i>
+                        </div>
+                      </div>
+                      <p class="text-gray-500 text-sm mb-2">10 Juni 2025</p>
+                      <p class="text-gray-700">"Kualitas produk original, pengiriman cepat. Sangat puas dengan belanja di UrbanStep!"</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <section class="py-12 bg-light_bg">
+      <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold mb-8 text-primary text-center">Produk Terkait</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 hover:shadow-2xl transition-all duration-300">
+            <img src="Image/samba 1.png" alt="Adidas Samba OG" class="w-full h-48 object-cover">
+            <div class="p-4">
+              <h3 class="text-xl font-semibold mb-2 text-dark_text">Adidas Samba OG</h3>
+              <p class="text-gray-600 mb-4">Classic Style</p>
+              <div class="flex justify-between items-center">
+                <span class="text-primary font-bold">Rp 1.760.000</span>
+                <a href="detail-produk.html" class="bg-primary text-white px-4 py-2 rounded hover:bg-secondary shadow transition-colors duration-200">View</a>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 hover:shadow-2xl transition-all duration-300">
+            <img src="Image/gazzele 2.png" alt="Adidas Gazelle Indoor" class="w-full h-48 object-cover">
+            <div class="p-4">
+              <h3 class="text-xl font-semibold mb-2 text-dark_text">Adidas Gazelle Indoor</h3>
+              <p class="text-gray-600 mb-4">Iconic Retro</p>
+              <div class="flex justify-between items-center">
+                <span class="text-primary font-bold">Rp 1.800.000</span>
+                <a href="detail-produk.html" class="bg-primary text-white px-4 py-2 rounded hover:bg-secondary shadow transition-colors duration-200">View</a>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 hover:shadow-2xl transition-all duration-300">
+            <img src="Image/adidas 1.png" alt="Adidas Barreda Decode" class="w-full h-48 object-cover">
+            <div class="p-4">
+              <h3 class="text-xl font-semibold mb-2 text-dark_text">Adidas Barreda Decode</h3>
+              <p class="text-gray-600 mb-4">Performance Ready</p>
+              <div class="flex justify-between items-center">
+                <span class="text-primary font-bold">Rp 1.300.000</span>
+                <a href="detail-produk.html" class="bg-primary text-white px-4 py-2 rounded hover:bg-secondary shadow transition-colors duration-200">View</a>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 hover:shadow-2xl transition-all duration-300">
+            <img src="Image/spezial 2.png" alt="Adidas Handball Spezial (Blue)" class="w-full h-48 object-cover">
+            <div class="p-4">
+              <h3 class="text-xl font-semibold mb-2 text-dark_text">Adidas Handball Spezial</h3>
+              <p class="text-gray-600 mb-4">Retro Look</p>
+              <div class="flex justify-between items-center">
+                <span class="text-primary font-bold">Rp 4.089.000</span>
+                <a href="detail-produk.html" class="bg-primary text-white px-4 py-2 rounded hover:bg-secondary shadow transition-colors duration-200">View</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-primary text-white py-10">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-accent">UrbanStep</h3>
+            <p class="mb-4 text-gray-400">
+              adalah destinasi terbaik untuk kamu yang ingin melangkah lebih
+              jauh. Kami menghadirkan sepatu Adidas original pilihan, untuk
+              penampilan yang lebih casual.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200 transform hover:scale-110">
+                <i class="fab fa-twitter h-6 w-6"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/hfdz24_?igsh=dnFmanMxeThva2t2"
+                class="text-gray-400 hover:text-accent transition-colors duration-200 transform hover:scale-110"
+              >
+                <i class="fab fa-instagram h-6 w-6"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200 transform hover:scale-110">
+                <i class="fab fa-facebook-f h-6 w-6"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-white">Quick Links</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li><a href="index.html" class="hover:text-accent transition-colors duration-200">Home</a></li>
+              <li>
+                <a href="dashboard.html" class="hover:text-accent transition-colors duration-200">Dashboard</a>
+              </li>
+              <li>
+                <a href="artikel.html" class="hover:text-accent transition-colors duration-200">Articles</a>
+              </li>
+              <li>
+                <a href="produk.html" class="hover:text-accent transition-colors duration-200">Products</a>
+              </li>
+              <li>
+                <a href="keranjang.html" class="hover:text-accent transition-colors duration-200">Cart</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-white">Contact Us</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li class="flex items-start">
+                <i class="fa-solid fa-location-dot h-6 w-6 mr-2 flex-shrink-0"></i>
+                <span>Srikana Street, Surabaya, Indonesia</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-envelope h-6 w-6 mr-2 flex-shrink-0"></i>
+                <span>urbnstp@gmail.com</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-phone h-6 w-6 mr-2 flex-shrink-0"></i>
+                <span>081234567890</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-secondary mt-8 pt-8 text-center text-gray-500">
+          <p>&copy; 2025 UrbanStep. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            duration: 1000,
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById("mobile-menu-button");
+            const mobileMenu = document.getElementById("mobile-menu");
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener("click", () => {
+                    mobileMenu.classList.toggle("hidden");
+                });
+            }
+
+            // Thumbnail image switching
+            const mainImage = document.getElementById("main-image");
+            const thumbnailButtons = document.querySelectorAll(".thumbnail-btn");
+
+            thumbnailButtons.forEach((button) => {
+                button.addEventListener("click", function () {
+                    // Remove active border from all thumbnails
+                    thumbnailButtons.forEach((btn) =>
+                        btn.classList.remove("border-primary", "text-primary", "font-medium")
+                    );
+                    thumbnailButtons.forEach((btn) =>
+                        btn.classList.add("border-gray-300", "text-gray-700") // Use gray-300 for inactive border
+                    );
+
+                    // Add active border to clicked thumbnail
+                    this.classList.add("border-primary", "text-primary", "font-medium");
+                    this.classList.remove("border-gray-300", "text-gray-700");
+
+                    // Change main image source
+                    const newImageSrc = this.dataset.imgSrc; // Get from data-img-src
+                    mainImage.src = newImageSrc;
+                });
+            });
+
+            // Quantity controls
+            const decreaseQtyBtn = document.getElementById("decrease-qty");
+            const increaseQtyBtn = document.getElementById("increase-qty");
+            const quantityInput = document.getElementById("quantity");
+
+            if (decreaseQtyBtn && increaseQtyBtn && quantityInput) {
+                decreaseQtyBtn.addEventListener("click", () => {
+                    let currentQty = parseInt(quantityInput.value);
+                    if (currentQty > 1) {
+                        quantityInput.value = currentQty - 1;
+                    }
+                });
+
+                increaseQtyBtn.addEventListener("click", () => {
+                    let currentQty = parseInt(quantityInput.value);
+                    quantityInput.value = currentQty + 1;
+                });
+            }
+
+            // Tab functionality (Description vs Reviews)
+            const tabButtons = document.querySelectorAll(".tab-btn");
+            const tabContents = document.querySelectorAll(".tab-content");
+
+            // Activate the first tab by default on load
+            // Only activate if there are tabs present and not already handled
+            if (tabButtons.length > 0 && !tabButtons[0].classList.contains('active')) {
+                tabButtons[0].classList.add("text-primary", "border-b-2", "border-primary", "active");
+                tabContents[0].classList.remove("hidden");
+            }
+
+
+            tabButtons.forEach((button) => {
+                button.addEventListener("click", function () {
+                    const targetId = this.dataset.target; // 'description' or 'reviews'
+
+                    tabButtons.forEach(btn => {
+                        // Reset all buttons to inactive state
+                        btn.classList.remove(
+                            "text-primary", "border-b-2", "border-primary", "active"
+                        );
+                        // Ensure other buttons have the correct inactive state
+                        btn.classList.add("text-gray-600", "hover:text-primary", "hover:border-primary", "border-b-2", "border-transparent");
+                    });
+
+                    tabContents.forEach(content => {
+                        content.classList.add("hidden");
+                    });
+
+                    // Set clicked button to active state
+                    this.classList.add(
+                        "text-primary", "border-b-2", "border-primary", "active"
+                    );
+                    this.classList.remove("text-gray-600", "hover:text-primary", "hover:border-primary", "border-b-2", "border-transparent"); 
+
+                    // Show corresponding tab content (FIXED: using template literal correctly)
+                    document.getElementById(`tab-${targetId}`).classList.remove("hidden");
+                });
+            });
+
+            // Add to Cart button functionality (simple example for local storage)
+            const addToCartButton = document.getElementById('add-to-cart');
+            if (addToCartButton) {
+                addToCartButton.addEventListener('click', function() {
+                    const productId = 'AHB-001'; // Static ID for this product
+                    const productName = 'Adidas Handball Spezial';
+                    const productPrice = 2849000;
+                    const productImage = 'Image/spezial 1.png'; // Main image for simplicity
+                    const quantity = parseInt(quantityInput.value);
+
+                    let cart = JSON.parse(localStorage.getItem('urbanstep_cart')) || [];
+
+                    const existingItemIndex = cart.findIndex(item => item.id === productId);
+
+                    if (existingItemIndex > -1) {
+                        cart[existingItemIndex].quantity += quantity;
+                    } else {
+                        cart.push({
+                            id: productId,
+                            name: productName,
+                            price: productPrice,
+                            image: productImage,
+                            quantity: quantity
+                        });
+                    }
+
+                    localStorage.setItem('urbanstep_cart', JSON.stringify(cart));
+                    // FIXED: Using backticks for template literal
+                    alert(`${quantity}x ${productName} ditambahkan ke keranjang!`); // Simple alert
+                    updateCartCount(); // Update the cart count in the header
+                });
+            }
+
+            // Function to update cart count in header (e.g., used after adding to cart)
+            function updateCartCount() {
+                let cart = JSON.parse(localStorage.getItem('urbanstep_cart')) || [];
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                const cartCountSpan = document.getElementById('cart-count');
+                if (cartCountSpan) {
+                    cartCountSpan.textContent = totalItems;
+                }
+            }
+            updateCartCount(); // Initial update on page load
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Urban Step</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <div class="flex h-screen overflow-hidden">
+      <!-- Sidebar -->
+      <div class="hidden md:flex md:flex-shrink-0">
+        <div class="flex flex-col w-64 bg-gray-800">
+          <div class="flex items-center justify-center h-16 bg-gray-900">
+            <a href="index.html"><span class="text-white font-bold text-xl">URBAN STEP</span></a>
+          </div>
+          <div class="flex flex-col flex-grow pt-5 overflow-y-auto">
+            <div class="flex flex-col flex-grow px-4">
+              <nav class="flex-1 space-y-2">
+                <a
+                  href="#"
+                  class="flex items-center px-4 py-3 text-sm font-medium text-white bg-gray-700 rounded-lg"
+                >
+                  <i class="fas fa-tachometer-alt mr-3"></i>
+                  Dashboard
+                </a>
+                <a
+                  href="/kelola-produk.html"
+                  class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-lg"
+                >
+                  <i class="fas fa-shoe-prints mr-3"></i>
+                  kelola Produk
+                </a>
+
+                <a
+                  href="kelola-pengguna.html"
+                  class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-lg"
+                >
+                  <i class="fas fa-users mr-3"></i>
+                  kelola Pengguna
+                </a>
+                <a
+                  href="kelola-artikel.html"
+                  class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-lg"
+                >
+                  <i class="fas fa-chart-line mr-3"></i>
+                  kelola artikel
+                </a>
+                <a
+                  href="kelola-transaksi.html"
+                  class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-lg"
+                >
+                  <i class="fas fa-cog mr-3"></i>
+                  kelola Transaksi
+                </a>
+              </nav>
+            </div>
+            <div class="p-4 mt-auto">
+              <div class="flex items-center p-4 bg-gray-700 rounded-lg">
+                <img
+                  class="w-10 h-10 rounded-full"
+                  src="/Image/Profile 2.jpg"
+                  alt="User"
+                />
+                <div class="ml-3">
+                  <p class="text-sm font-medium text-white">Admin Urban</p>
+                  <p class="text-xs font-medium text-gray-300">
+                    admin@gmail.com
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="flex flex-col flex-1 overflow-hidden">
+        <!-- Top Navigation -->
+        <header
+          class="flex items-center justify-between px-6 py-4 bg-white border-b"
+        >
+          <div class="flex items-center">
+            <button class="text-gray-500 focus:outline-none md:hidden">
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="relative mx-4 md:mx-0">
+              <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                <i class="fas fa-search text-gray-400"></i>
+              </span>
+              <input
+                class="w-full py-2 pl-10 pr-4 text-gray-700 bg-gray-100 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                type="text"
+                placeholder="Cari..."
+              />
+            </div>
+          </div>
+          <div class="flex items-center">
+            <button
+              class="p-1 text-gray-500 rounded-full focus:outline-none hover:text-gray-700"
+            >
+              <i class="fas fa-bell"></i>
+            </button>
+            <div class="ml-4">
+              <div class="relative">
+                <button class="flex items-center focus:outline-none">
+                  <img
+                    class="w-8 h-8 rounded-full"
+                    src="https://randomuser.me/api/portraits/men/32.jpg"
+                    alt="User"
+                  />
+                  <span class="ml-2 text-sm font-medium text-gray-700 md:hidden"
+                    >Admin</span
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 overflow-y-auto p-6 bg-gray-50">
+          <div class="mb-6">
+            <h1 class="text-2xl font-bold text-gray-800">Dashboard</h1>
+            <p class="text-gray-600">Selamat datang kembali, Admin!</p>
+          </div>
+
+          <!-- Stats Cards -->
+          <div
+            class="grid grid-cols-1 gap-6 mb-6 md:grid-cols-2 lg:grid-cols-4"
+          >
+            <div class="p-6 bg-white rounded-lg shadow">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm font-medium text-gray-500">
+                    Total Pendapatan
+                  </p>
+                  <p class="text-2xl font-bold text-gray-800">Rp 28.450.000</p>
+                </div>
+                <div class="p-3 bg-blue-100 rounded-full">
+                  <i class="fas fa-wallet text-blue-500"></i>
+                </div>
+              </div>
+              <div class="mt-4">
+                <span
+                  class="inline-block px-2 py-1 text-xs font-semibold text-green-600 bg-green-100 rounded-full"
+                >
+                  <i class="fas fa-arrow-up mr-1"></i> 12.5%
+                </span>
+                <span class="ml-2 text-sm text-gray-500">dari bulan lalu</span>
+              </div>
+            </div>
+
+            <div class="p-6 bg-white rounded-lg shadow">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm font-medium text-gray-500">Total Pesanan</p>
+                  <p class="text-2xl font-bold text-gray-800">142</p>
+                </div>
+                <div class="p-3 bg-green-100 rounded-full">
+                  <i class="fas fa-shopping-cart text-green-500"></i>
+                </div>
+              </div>
+              <div class="mt-4">
+                <span
+                  class="inline-block px-2 py-1 text-xs font-semibold text-green-600 bg-green-100 rounded-full"
+                >
+                  <i class="fas fa-arrow-up mr-1"></i> 8.3%
+                </span>
+                <span class="ml-2 text-sm text-gray-500">dari bulan lalu</span>
+              </div>
+            </div>
+
+            <div class="p-6 bg-white rounded-lg shadow">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm font-medium text-gray-500">
+                    Produk Tersedia
+                  </p>
+                  <p class="text-2xl font-bold text-gray-800">56</p>
+                </div>
+                <div class="p-3 bg-purple-100 rounded-full">
+                  <i class="fas fa-shoe-prints text-purple-500"></i>
+                </div>
+              </div>
+              <div class="mt-4">
+                <span
+                  class="inline-block px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded-full"
+                >
+                  <i class="fas fa-arrow-down mr-1"></i> 3.2%
+                </span>
+                <span class="ml-2 text-sm text-gray-500">dari bulan lalu</span>
+              </div>
+            </div>
+
+            <div class="p-6 bg-white rounded-lg shadow">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm font-medium text-gray-500">
+                    Pelanggan Baru
+                  </p>
+                  <p class="text-2xl font-bold text-gray-800">24</p>
+                </div>
+                <div class="p-3 bg-yellow-100 rounded-full">
+                  <i class="fas fa-users text-yellow-500"></i>
+                </div>
+              </div>
+              <div class="mt-4">
+                <span
+                  class="inline-block px-2 py-1 text-xs font-semibold text-green-600 bg-green-100 rounded-full"
+                >
+                  <i class="fas fa-arrow-up mr-1"></i> 5.7%
+                </span>
+                <span class="ml-2 text-sm text-gray-500">dari bulan lalu</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Orders and Top Products -->
+          <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <!-- Recent Orders -->
+            <div class="p-6 bg-white rounded-lg shadow">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-lg font-semibold text-gray-800">
+                  Pesanan Terbaru
+                </h2>
+                <a href="#" class="text-sm text-blue-500 hover:underline"
+                  >Lihat Semua</a
+                >
+              </div>
+              <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                  <thead class="bg-gray-50">
+                    <tr>
+                      <th
+                        class="px-4 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                      >
+                        ID Pesanan
+                      </th>
+                      <th
+                        class="px-4 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                      >
+                        Pelanggan
+                      </th>
+                      <th
+                        class="px-4 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                      >
+                        Status
+                      </th>
+                      <th
+                        class="px-4 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                      >
+                        Total
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-4 py-3 text-sm text-gray-900">
+                        #Adidas-2023-001
+                      </td>
+                      <td class="px-4 py-3 text-sm text-gray-900">
+                        Andi Wijaya
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        <span
+                          class="px-2 py-1 text-xs font-semibold text-green-800 bg-green-100 rounded-full"
+                          >Dikirim</span
+                        >
+                      </td>
+                      <td class="px-4 py-3 text-sm text-gray-900">
+                        Rp 1.850.000
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 text-sm text-gray-900">
+                        #Adidas-2023-002
+                      </td>
+                      <td class="px-4 py-3 text-sm text-gray-900">
+                        Budi Santoso
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        <span
+                          class="px-2 py-1 text-xs font-semibold text-blue-800 bg-blue-100 rounded-full"
+                          >Diproses</span
+                        >
+                      </td>
+                      <td class="px-4 py-3 text-sm text-gray-900">
+                        Rp 2.450.000
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 text-sm text-gray-900">
+                        #Adidas-2023-003
+                      </td>
+                      <td class="px-4 py-3 text-sm text-gray-900">
+                        Citra Dewi
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        <span
+                          class="px-2 py-1 text-xs font-semibold text-yellow-800 bg-yellow-100 rounded-full"
+                          >Menunggu Pembayaran</span
+                        >
+                      </td>
+                      <td class="px-4 py-3 text-sm text-gray-900">
+                        Rp 1.250.000
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 text-sm text-gray-900">
+                        #Adidas-2023-004
+                      </td>
+                      <td class="px-4 py-3 text-sm text-gray-900">
+                        Dian Pratama
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        <span
+                          class="px-2 py-1 text-xs font-semibold text-green-800 bg-green-100 rounded-full"
+                          >Dikirim</span
+                        >
+                      </td>
+                      <td class="px-4 py-3 text-sm text-gray-900">
+                        Rp 3.200.000
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Top Products -->
+            <div class="p-6 bg-white rounded-lg shadow">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-lg font-semibold text-gray-800">
+                  Produk Terlaris
+                </h2>
+                <a href="#" class="text-sm text-blue-500 hover:underline"
+                  >Lihat Semua</a
+                >
+              </div>
+              <div class="space-y-4">
+                <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                  <img
+                    class="w-16 h-16 object-cover rounded"
+                    src="/image/spezial 1.png"
+                    alt="Adidas Handball Spezial"
+                  />
+                  <div class="ml-4">
+                    <h3 class="text-sm font-medium text-gray-900">
+                      Adidas Handball Spezial
+                    </h3>
+                    <p class="text-sm text-gray-500">Terjual: 42</p>
+                  </div>
+                  <div class="ml-auto text-right">
+                    <p class="text-sm font-medium text-gray-900">
+                      Rp 2.499.000
+                    </p>
+                    <div class="flex items-center mt-1">
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <span class="ml-1 text-xs text-gray-500">4.8</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                  <img
+                    class="w-16 h-16 object-cover rounded"
+                    src="/image/gazzele 1.png"
+                    alt="Adidas Gazzele indoor"
+                  />
+                  <div class="ml-4">
+                    <h3 class="text-sm font-medium text-gray-900">
+                      Adidas Gazzele Indoor
+                    </h3>
+                    <p class="text-sm text-gray-500">Terjual: 38</p>
+                  </div>
+                  <div class="ml-auto text-right">
+                    <p class="text-sm font-medium text-gray-900">
+                      Rp 1.899.000
+                    </p>
+                    <div class="flex items-center mt-1">
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <span class="ml-1 text-xs text-gray-500">4.7</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                  <img
+                    class="w-16 h-16 object-cover rounded"
+                    src="/image/samba 1.png"
+                    alt="Adidas Samba OG"
+                  />
+                  <div class="ml-4">
+                    <h3 class="text-sm font-medium text-gray-900">
+                      Adidas Samba OG
+                    </h3>
+                    <p class="text-sm text-gray-500">Terjual: 35</p>
+                  </div>
+                  <div class="ml-auto text-right">
+                    <p class="text-sm font-medium text-gray-900">
+                      Rp 1.599.000
+                    </p>
+                    <div class="flex items-center mt-1">
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <span class="ml-1 text-xs text-gray-500">4.6</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                  <img
+                    class="w-16 h-16 object-cover rounded"
+                    src="/image/spezial 2.png"
+                    alt="Adidas Handball Spezial"
+                  />
+                  <div class="ml-4">
+                    <h3 class="text-sm font-medium text-gray-900">
+                      Adidas Handball Spezial
+                    </h3>
+                    <p class="text-sm text-gray-500">Terjual: 27</p>
+                  </div>
+                  <div class="ml-auto text-right">
+                    <p class="text-sm font-medium text-gray-900">
+                      Rp 2.299.000
+                    </p>
+                    <div class="flex items-center mt-1">
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <span class="ml-1 text-xs text-gray-500">4.9</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

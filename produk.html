@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk | UrbanStep</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Primary color: A deep, rich blue / Charcoal
+                        primary: "#1A202C", 
+                        // Secondary: A soft, muted gray-blue
+                        secondary: "#4A5568", 
+                        // Accent: A vibrant, electric lime green for pop
+                        accent: "#00FF00", 
+                        // Backgrounds and text
+                        light_bg: "#E2E8F0", // Light Blue-Gray for main body background
+                        dark_text: "#2D3748", // Darker Gray for general text
+                        white_text_soft: "#CBD5E0", // Soft white for text on dark backgrounds
+                    },
+                },
+            },
+        };
+    </script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="Image/Hero.png" type="image/png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body class="bg-light_bg text-dark_text">
+    <header class="bg-primary text-white shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-accent text-3xl font-bold">UrbanStep</a>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="hover:text-accent transition-colors duration-200">Home</a></li>
+                    <li><a href="artikel.html" class="hover:text-accent transition-colors duration-200">Artikel</a></li>
+                    <li><a href="produk.html" class="text-accent transition-colors duration-200">Produk</a></li>
+                    <li><a href="keranjang.html" class="hover:text-accent transition-colors duration-200">Keranjang</a></li>
+                    <li><a href="history.html" class="hover:text-accent flex items-center transition-colors duration-200">History Pembayaran</a></li>
+                </ul>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="keranjang.html" class="relative hover:text-accent transition-colors duration-200">
+                    <i class="fas fa-shopping-cart h-6 w-6"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-accent text-primary_text text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </a>
+                <a href="login.html" class="hover:text-accent transition-colors duration-200">Login</a>
+                <a href="dashboard.html" class="hover:text-accent transition-colors duration-200"><i class="fa-solid fa-user-tie text-white"></i></a>
+                <button id="mobile-menu-button" class="md:hidden text-white hover:text-accent transition-colors duration-200">
+                    <i class="fas fa-bars h-6 w-6"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <ul class="bg-primary px-4 py-2 text-white">
+                <li><a href="index.html" class="block py-2 hover:text-accent transition-colors duration-200">Home</a></li>
+                <li><a href="artikel.html" class="block py-2 hover:text-accent transition-colors duration-200">Artikel</a></li>
+                <li><a href="produk.html" class="block py-2 hover:text-accent transition-colors duration-200">Produk</a></li>
+                <li><a href="keranjang.html" class="block py-2 hover:text-accent transition-colors duration-200">Keranjang</a></li>
+                <li><a href="history.html" class="block py-2 hover:text-accent transition-colors duration-200">History Pembayaran</a></li>
+                <li><a href="login.html" class="block py-2 hover:text-accent transition-colors duration-200">Login</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section 
+        class="relative h-96 bg-cover bg-center flex items-center justify-center" 
+        style="background-image: url('https://img.spartoo.eu/branding/U10652_responsive/images/main.jpg');"
+        data-aos="fade-down" data-aos-duration="1000"
+    >
+        <div class="absolute inset-0 bg-primary opacity-70"></div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl font-bold mb-4 text-white">Katalog Produk</h1>
+            <p class="text-xl text-white">Temukan produk berkualitas dengan harga terbaik</p>
+        </div>
+    </section>
+
+    <section class="py-12 bg-light_bg">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <div class="lg:w-1/4" data-aos="fade-right" data-aos-delay="100">
+                    <div class="bg-white rounded-xl shadow-xl p-6 sticky top-6">
+                        <h2 class="text-2xl font-bold mb-6 text-primary">Filter</h2>
+                        
+                        <div class="mb-6">
+                            <h3 class="font-semibold mb-3 text-dark_text">Kategori</h3>
+                            <div class="space-y-2">
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="cat-all" class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded accent-primary">
+                                    <label for="cat-all" class="ml-2 text-dark_text">Semua</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="cat-spezial" class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded accent-primary">
+                                    <label for="cat-spezial" class="ml-2 text-dark_text">Spezial</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="cat-gazelle" class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded accent-primary">
+                                    <label for="cat-gazelle" class="ml-2 text-dark_text">Gazelle</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="cat-samba" class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded accent-primary">
+                                    <label for="cat-samba" class="ml-2 text-dark_text">Samba</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="cat-popular" class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded accent-primary">
+                                    <label for="cat-popular" class="ml-2 text-dark_text">Populer</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <h3 class="font-semibold mb-3 text-dark_text">Rentang Harga</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <input type="number" placeholder="Min" class="w-24 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary text-dark_text">
+                                    <span class="text-gray-500">-</span>
+                                    <input type="number" placeholder="Max" class="w-24 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary text-dark_text">
+                                </div>
+                                <input type="range" min="0" max="10000000" class="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer accent-primary">
+                                <button class="w-full bg-primary hover:bg-secondary text-white py-2 rounded-md transition-colors duration-200 transform hover:scale-105">Terapkan</button>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h3 class="font-semibold mb-3 text-dark_text">Rating</h3>
+                            <div class="space-y-2">
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="rating-5" class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded accent-primary">
+                                    <label for="rating-5" class="ml-2 text-dark_text flex items-center">
+                                        <span class="flex text-yellow-500">
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                        </span>
+                                        <span class="ml-1">5</span>
+                                    </label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="rating-4" class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded accent-primary">
+                                    <label for="rating-4" class="ml-2 text-dark_text flex items-center">
+                                        <span class="flex text-yellow-500">
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                        </span>
+                                        <span class="ml-1">4 & up</span>
+                                    </label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="rating-3" class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded accent-primary">
+                                    <label for="rating-3" class="ml-2 text-dark_text flex items-center">
+                                        <span class="flex text-yellow-500">
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                        </span>
+                                        <span class="ml-1">3 & up</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="w-full border border-gray-300 hover:border-primary text-gray-700 hover:text-primary py-2 rounded-md transition-colors duration-200 transform hover:scale-105">Reset Filter</button>
+                    </div>
+                </div>
+                
+                <div class="lg:w-3/4" data-aos="fade-left" data-aos-delay="100">
+                    <div class="bg-white rounded-xl shadow-xl p-4 mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                        <div class="mb-4 sm:mb-0 text-dark_text">
+                            <label for="sort" class="text-gray-700 mr-2">Sort by:</label>
+                            <select id="sort" class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-1 focus:ring-primary transition-colors duration-200 text-dark_text">
+                                <option value="popularity">Popularity</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="newest">Newest</option>
+                            </select>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-gray-700 mr-2">View:</span>
+                            <button class="p-2 text-primary hover:text-accent transition-colors duration-200">
+                                <i class="fas fa-th-large h-5 w-5"></i> </button>
+                            <button class="p-2 text-gray-500 hover:text-primary transition-colors duration-200">
+                                <i class="fas fa-list h-5 w-5"></i> </button>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 hover:shadow-2xl transition-all duration-300" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="relative">
+                                <img src="Image/spezial 1.png" alt="Product 1" class="w-full h-64 object-cover">
+                                <div class="absolute top-2 right-2 bg-primary text-white text-xs font-bold px-2 py-1 rounded">New</div>
+                            </div>
+                            <div class="p-4">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-lg font-semibold text-dark_text">Adidas Handball Spezial</h3>
+                                    <div class="flex text-yellow-500">
+                                        <i class="fas fa-star"></i>
+                                        <span class="text-sm ml-1 text-gray-500">4.8</span>
+                                    </div>
+                                </div>
+                                <p class="text-gray-500 text-sm mb-4">Special Price</p>
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <span class="text-xl text-primary font-bold">Rp 2.849.000</span>
+                                        <span class="text-sm text-gray-500 line-through ml-2">Rp 3.165.555,56</span>
+                                    </div>
+                                    <button class="bg-primary hover:bg-secondary text-white p-2 rounded-full transition-colors duration-200 transform hover:scale-110 add-to-cart" data-id="1" data-name="Adidas Handball Spezial" data-price="2849000" data-image="Image/spezial 1.png">
+                                        <i class="fas fa-shopping-cart h-5 w-5"></i>
+                                    </button>
+                                </div>
+                                <a href="detail-produk.html" class="block text-center mt-4 bg-light_bg hover:bg-secondary/20 text-dark_text py-2 rounded-md transition-colors duration-200">Lihat Detail</a>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 hover:shadow-2xl transition-all duration-300" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="relative">
+                                <img src="Image/samba 1.png" alt="Product 2" class="w-full h-64 object-cover">
+                                <div class="absolute top-2 right-2 bg-accent text-primary_text text-xs font-bold px-2 py-1 rounded">Sale</div>
+                            </div>
+                            <div class="p-4">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-lg font-semibold text-dark_text">Adidas Samba OG</h3>
+                                    <div class="flex text-yellow-500">
+                                        <i class="fas fa-star"></i>
+                                        <span class="text-sm ml-1 text-gray-500">4.5</span>
+                                    </div>
+                                </div>
+                                <p class="text-gray-500 text-sm mb-4">Classic Style</p>
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <span class="text-xl text-primary font-bold">Rp 1.299.000</span>
+                                        <span class="text-sm text-gray-500 line-through ml-2">Rp 1.599.000</span>
+                                    </div>
+                                    <button class="bg-primary hover:bg-secondary text-white p-2 rounded-full transition-colors duration-200 transform hover:scale-110 add-to-cart" data-id="2" data-name="Adidas Samba OG" data-price="1299000" data-image="Image/samba 1.png">
+                                        <i class="fas fa-shopping-cart h-5 w-5"></i>
+                                    </button>
+                                </div>
+                                <a href="detail-produk.html" class="block text-center mt-4 bg-light_bg hover:bg-secondary/20 text-dark_text py-2 rounded-md transition-colors duration-200">Lihat Detail</a>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 hover:shadow-2xl transition-all duration-300" data-aos="zoom-in" data-aos-delay="400">
+                            <div class="relative">
+                                <img src="Image/gazzele 1.png" alt="Product 3" class="w-full h-64 object-cover">
+                            </div>
+                            <div class="p-4">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-lg font-semibold text-dark_text">Adidas Gazelle</h3>
+                                    <div class="flex text-yellow-500">
+                                        <i class="fas fa-star"></i>
+                                        <span class="text-sm ml-1 text-gray-500">4.7</span>
+                                    </div>
+                                </div>
+                                <p class="text-gray-500 text-sm mb-4">Iconic Retro</p>
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <span class="text-xl text-primary font-bold">Rp 3.599.000</span>
+                                    </div>
+                                    <button class="bg-primary hover:bg-secondary text-white p-2 rounded-full transition-colors duration-200 transform hover:scale-110 add-to-cart" data-id="3" data-name="Adidas Gazelle" data-price="3599000" data-image="Image/gazzele 1.png">
+                                        <i class="fas fa-shopping-cart h-5 w-5"></i>
+                                    </button>
+                                </div>
+                                <a href="detail-produk.html" class="block text-center mt-4 bg-light_bg hover:bg-secondary/20 text-dark_text py-2 rounded-md transition-colors duration-200">Lihat Detail</a>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 hover:shadow-2xl transition-all duration-300" data-aos="zoom-in" data-aos-delay="500">
+                            <div class="relative">
+                                <img src="Image/spezial 2.png" alt="Product 4" class="w-full h-64 object-cover">
+                                <div class="absolute top-2 right-2 bg-secondary text-white_text_soft text-xs font-bold px-2 py-1 rounded">Popular</div>
+                            </div>
+                            <div class="p-4">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-lg font-semibold text-dark_text">Adidas Handball Spezial</h3>
+                                    <div class="flex text-yellow-500">
+                                        <i class="fas fa-star"></i>
+                                        <span class="text-sm ml-1 text-gray-500">4.3</span>
+                                    </div>
+                                </div>
+                                <p class="text-gray-500 text-sm mb-4">Retro Look</p>
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <span class="text-xl text-primary font-bold">Rp 4.089.000</span>
+                                        <span class="text-sm text-gray-500 line-through ml-2">Rp 4.089.000</span>
+                                    </div>
+                                    <button class="bg-primary hover:bg-secondary text-white p-2 rounded-full transition-colors duration-200 transform hover:scale-110 add-to-cart" data-id="4" data-name="Adidas Handball Spezial (Blue)" data-price="4089000" data-image="Image/spezial 2.png">
+                                        <i class="fas fa-shopping-cart h-5 w-5"></i>
+                                    </button>
+                                </div>
+                                <a href="detail-produk.html" class="block text-center mt-4 bg-light_bg hover:bg-secondary/20 text-dark_text py-2 rounded-md transition-colors duration-200">Lihat Detail</a>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 hover:shadow-2xl transition-all duration-300" data-aos="zoom-in" data-aos-delay="600">
+                            <div class="relative">
+                                <img src="Image/adidas 1.png" alt="Product 5" class="w-full h-64 object-cover">
+                            </div>
+                            <div class="p-4">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-lg font-semibold text-dark_text">Adidas Barreda Decode</h3>
+                                    <div class="flex text-yellow-500">
+                                        <i class="fas fa-star"></i>
+                                        <span class="text-sm ml-1 text-gray-500">4.9</span>
+                                    </div>
+                                </div>
+                                <p class="text-gray-500 text-sm mb-4">Performance Ready</p>
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <span class="text-xl text-primary font-bold">Rp 899.000</span>
+                                    </div>
+                                    <button class="bg-primary hover:bg-secondary text-white p-2 rounded-full transition-colors duration-200 transform hover:scale-110 add-to-cart" data-id="5" data-name="Adidas Barreda Decode" data-price="899000" data-image="Image/adidas 1.png">
+                                        <i class="fas fa-shopping-cart h-5 w-5"></i>
+                                    </button>
+                                </div>
+                                <a href="detail-produk.html" class="block text-center mt-4 bg-light_bg hover:bg-secondary/20 text-dark_text py-2 rounded-md transition-colors duration-200">Lihat Detail</a>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 hover:shadow-2xl transition-all duration-300" data-aos="zoom-in" data-aos-delay="700">
+                            <div class="relative">
+                                <img src="Image/gazzele 2.png" alt="Product 6" class="w-full h-64 object-cover">
+                                <div class="absolute top-2 right-2 bg-primary text-white text-xs font-bold px-2 py-1 rounded">New</div>
+                            </div>
+                            <div class="p-4">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-lg font-semibold text-dark_text">Adidas Gazelle</h3>
+                                    <div class="flex text-yellow-500">
+                                        <i class="fas fa-star"></i>
+                                        <span class="text-sm ml-1 text-gray-500">4.6</span>
+                                    </div>
+                                </div>
+                                <p class="text-gray-500 text-sm mb-4">Casual Comfort</p>
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <span class="text-xl text-primary font-bold">Rp 349.000</span>
+                                        <span class="text-sm text-gray-500 line-through ml-2">Rp 399.000</span>
+                                    </div>
+                                    <button class="bg-primary hover:bg-secondary text-white p-2 rounded-full transition-colors duration-200 transform hover:scale-110 add-to-cart" data-id="6" data-name="Adidas Gazelle (Green)" data-price="349000" data-image="Image/gazzele 2.png">
+                                        <i class="fas fa-shopping-cart h-5 w-5"></i>
+                                    </button>
+                                </div>
+                                <a href="detail-produk.html" class="block text-center mt-4 bg-light_bg hover:bg-secondary/20 text-dark_text py-2 rounded-md transition-colors duration-200">Lihat Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 flex justify-center" data-aos="zoom-in">
+                        <nav class="flex items-center space-x-2">
+                            <a href="#" class="px-3 py-2 rounded-md border border-gray-300 text-gray-500 hover:bg-primary hover:text-white hover:border-primary transition-colors duration-200">
+                                <i class="fas fa-chevron-left h-5 w-5"></i>
+                            </a>
+                            <a href="#" class="px-4 py-2 rounded-md bg-primary text-white">1</a>
+                            <a href="#" class="px-4 py-2 rounded-md border border-gray-300 text-gray-700 hover:bg-primary hover:text-white hover:border-primary transition-colors duration-200">2</a>
+                            <a href="#" class="px-4 py-2 rounded-md border border-gray-300 text-gray-700 hover:bg-primary hover:text-white hover:border-primary transition-colors duration-200">3</a>
+                            <span class="px-4 py-2 text-gray-600">...</span>
+                            <a href="#" class="px-4 py-2 rounded-md border border-gray-300 text-gray-700 hover:bg-primary hover:text-white hover:border-primary transition-colors duration-200">10</a>
+                            <a href="#" class="px-3 py-2 rounded-md border border-gray-300 text-gray-500 hover:bg-primary hover:text-white hover:border-primary transition-colors duration-200">
+                                <i class="fas fa-chevron-right h-5 w-5"></i>
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-primary text-white py-10">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-accent">UrbanStep</h3>
+            <p class="mb-4 text-gray-400">
+              adalah destinasi terbaik untuk kamu yang ingin melangkah lebih
+              jauh. Kami menghadirkan sepatu Adidas original pilihan, untuk
+              penampilan yang lebih casual.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200 transform hover:scale-110">
+                <i class="fab fa-twitter h-6 w-6"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/hfdz24_?igsh=dnFmanMxeThva2t2"
+                class="text-gray-400 hover:text-accent transition-colors duration-200 transform hover:scale-110"
+              >
+                <i class="fab fa-instagram h-6 w-6"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200 transform hover:scale-110">
+                <i class="fab fa-facebook-f h-6 w-6"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-white">Quick Links</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li><a href="index.html" class="hover:text-accent transition-colors duration-200">Home</a></li>
+              <li>
+                <a href="dashboard.html" class="hover:text-accent transition-colors duration-200">Dashboard</a>
+              </li>
+              <li>
+                <a href="artikel.html" class="hover:text-accent transition-colors duration-200">Articles</a>
+              </li>
+              <li>
+                <a href="produk.html" class="hover:text-accent transition-colors duration-200">Products</a>
+              </li>
+              <li>
+                <a href="keranjang.html" class="hover:text-accent transition-colors duration-200">Cart</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-white">Contact Us</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li class="flex items-start">
+                <i class="fa-solid fa-location-dot h-6 w-6 mr-2 flex-shrink-0"></i>
+                <span>Srikana Street, Surabaya, Indonesia</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-envelope h-6 w-6 mr-2 flex-shrink-0"></i>
+                <span>urbnstp@gmail.com</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-phone h-6 w-6 mr-2 flex-shrink-0"></i>
+                <span>081234567890</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-secondary mt-8 pt-8 text-center text-gray-500">
+          <p>&copy; 2025 UrbanStep. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            duration: 1000,
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById("mobile-menu-button");
+            const mobileMenu = document.getElementById("mobile-menu");
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener("click", () => {
+                    mobileMenu.classList.toggle("hidden");
+                });
+            }
+
+            // Tab functionality (Description vs Reviews)
+            const tabButtons = document.querySelectorAll(".tab-btn");
+            const tabContents = document.querySelectorAll(".tab-content");
+
+            // Activate the first tab by default on load
+            if (tabButtons.length > 0) {
+                // Ensure only the first tab starts active if none are marked active in HTML
+                tabButtons.forEach(btn => {
+                    btn.classList.remove("active", "text-primary", "border-primary");
+                    btn.classList.add("text-gray-600", "hover:text-primary", "hover:border-primary", "border-transparent");
+                });
+                tabContents.forEach(content => content.classList.add("hidden"));
+
+                // Manually activate the first tab or the one with 'active' class if it exists
+                const initialActiveTab = document.querySelector('.tab-btn.active') || tabButtons[0];
+                const initialTargetId = initialActiveTab.dataset.target;
+
+                initialActiveTab.classList.add("text-primary", "border-b-2", "border-primary", "active");
+                initialActiveTab.classList.remove("text-gray-600", "hover:text-primary", "hover:border-primary", "border-transparent");
+                document.getElementById(`tab-${initialTargetId}`).classList.remove("hidden");
+            }
+
+
+            tabButtons.forEach((button) => {
+                button.addEventListener("click", function () {
+                    const targetId = this.dataset.target; // 'description' or 'reviews'
+
+                    tabButtons.forEach(btn => {
+                        // Reset all buttons to inactive state
+                        btn.classList.remove(
+                            "text-primary", "border-b-2", "border-primary", "active"
+                        );
+                        // Ensure other buttons have the correct inactive state
+                        btn.classList.add("text-gray-600", "hover:text-primary", "hover:border-primary", "border-b-2", "border-transparent");
+                    });
+
+                    tabContents.forEach(content => {
+                        content.classList.add("hidden");
+                    });
+
+                    // Set clicked button to active state
+                    this.classList.add(
+                        "text-primary", "border-b-2", "border-primary", "active"
+                    );
+                    this.classList.remove("text-gray-600", "hover:text-primary", "hover:border-primary", "border-b-2", "border-transparent"); 
+
+                    // Show corresponding tab content
+                    document.getElementById(`tab-${targetId}`).classList.remove("hidden");
+                });
+            });
+
+            // Add to Cart button functionality (simple example for local storage)
+            const addToCartButton = document.getElementById('add-to-cart');
+            const quantityInput = document.getElementById('quantity'); // Get quantity input here
+            if (addToCartButton) {
+                addToCartButton.addEventListener('click', function() {
+                    const productId = 'AHB-001'; // Static ID for this product
+                    const productName = 'Adidas Handball Spezial';
+                    const productPrice = 2849000;
+                    const productImage = 'Image/spezial 1.png'; // Main image for simplicity
+                    const quantity = parseInt(quantityInput.value); // Use quantityInput here
+
+                    let cart = JSON.parse(localStorage.getItem('urbanstep_cart')) || [];
+
+                    const existingItemIndex = cart.findIndex(item => item.id === productId);
+
+                    if (existingItemIndex > -1) {
+                        cart[existingItemIndex].quantity += quantity;
+                    } else {
+                        cart.push({
+                            id: productId,
+                            name: productName,
+                            price: productPrice,
+                            image: productImage,
+                            quantity: quantity
+                        });
+                    }
+
+                    localStorage.setItem('urbanstep_cart', JSON.stringify(cart));
+                    // FIXED: Using backticks for template literal
+                    alert(`${quantity}x ${productName} ditambahkan ke keranjang!`); // Simple alert
+                    updateCartCount(); // Update the cart count in the header
+                });
+            }
+
+            // Function to update cart count in header (e.g., used after adding to cart)
+            function updateCartCount() {
+                let cart = JSON.parse(localStorage.getItem('urbanstep_cart')) || [];
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                const cartCountSpan = document.getElementById('cart-count');
+                if (cartCountSpan) {
+                    cartCountSpan.textContent = totalItems;
+                }
+            }
+            updateCartCount(); // Initial update on page load
+
+            // Thumbnail image switching
+            const mainImage = document.getElementById("main-image");
+            const thumbnailButtons = document.querySelectorAll(".thumbnail-btn");
+
+            thumbnailButtons.forEach((button) => {
+                button.addEventListener("click", function () {
+                    // Remove active border from all thumbnails
+                    thumbnailButtons.forEach((btn) =>
+                        btn.classList.remove("border-primary", "text-primary", "font-medium")
+                    );
+                    thumbnailButtons.forEach((btn) =>
+                        btn.classList.add("border-gray-300", "text-gray-700") // Use gray-300 for inactive border
+                    );
+
+                    // Add active border to clicked thumbnail
+                    this.classList.add("border-primary", "text-primary", "font-medium");
+                    this.classList.remove("border-gray-300", "text-gray-700");
+
+                    // Change main image source
+                    const newImageSrc = this.querySelector("img").src; // Assuming image src is directly on img
+                    mainImage.src = newImageSrc;
+                });
+            });
+
+            // Quantity controls (moved from outer scope)
+            const decreaseQtyBtn = document.getElementById("decrease-qty");
+            const increaseQtyBtn = document.getElementById("increase-qty");
+            // quantityInput is already defined above for addToCart
+            
+            if (decreaseQtyBtn && increaseQtyBtn && quantityInput) {
+                decreaseQtyBtn.addEventListener("click", () => {
+                    let currentQty = parseInt(quantityInput.value);
+                    if (currentQty > 1) {
+                        quantityInput.value = currentQty - 1;
+                    }
+                });
+
+                increaseQtyBtn.addEventListener("click", () => {
+                    let currentQty = parseInt(quantityInput.value);
+                    quantityInput.value = currentQty + 1;
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Artikel | UrbanStep</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Primary color: A deep, rich blue / Charcoal
+                        primary: "#1A202C", 
+                        // Secondary: A soft, muted gray-blue
+                        secondary: "#4A5568", 
+                        // Accent: A vibrant, electric lime green for pop
+                        accent: "#00FF00", 
+                        // Backgrounds and text
+                        light_bg: "#E2E8F0", // Light Blue-Gray for main body background
+                        dark_text: "#2D3748", // Darker Gray for general text
+                        white_text_soft: "#CBD5E0", // Soft white for text on dark backgrounds
+                    },
+                },
+            },
+        };
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="Image/Hero.png" type="image/png" />
+</head>
+<body class="bg-light_bg text-dark_text">
+    <header class="bg-primary text-white shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-accent text-3xl font-bold">UrbanStep</a>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="hover:text-accent transition-colors duration-200">Home</a></li>
+                    <li><a href="artikel.html" class="text-accent transition-colors duration-200">Artikel</a></li>
+                    <li><a href="produk.html" class="hover:text-accent transition-colors duration-200">Produk</a></li>
+                    <li>
+                        <a href="keranjang.html" class="hover:text-accent transition-colors duration-200">Keranjang</a>
+                    </li>
+                    <li>
+                        <a href="history.html" class="hover:text-accent flex items-center transition-colors duration-200">History Pembayaran</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="keranjang.html" class="relative hover:text-accent transition-colors duration-200">
+                    <i class="fas fa-shopping-cart h-6 w-6"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-accent text-primary_text text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </a>
+                <a href="login.html" class="hover:text-accent transition-colors duration-200">Login</a>
+                <a href="dashboard.html" class="hover:text-accent transition-colors duration-200"><i class="fa-solid fa-user-tie text-white"></i></a>
+                <button id="mobile-menu-button" class="md:hidden text-white hover:text-accent transition-colors duration-200">
+                    <i class="fas fa-bars h-6 w-6"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <ul class="bg-primary px-4 py-2 text-white">
+                <li><a href="index.html" class="block py-2 hover:text-accent transition-colors duration-200">Home</a></li>
+                <li><a href="artikel.html" class="block py-2 hover:text-accent transition-colors duration-200">Artikel</a></li>
+                <li><a href="produk.html" class="block py-2 hover:text-accent transition-colors duration-200">Produk</a></li>
+                <li><a href="keranjang.html" class="block py-2 hover:text-accent transition-colors duration-200">Keranjang</a></li>
+                <li><a href="history.html" class="block py-2 hover:text-accent transition-colors duration-200">History Pembayaran</a></li>
+                <li><a href="login.html" class="block py-2 hover:text-accent transition-colors duration-200">Login</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="py-12 bg-light_bg">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-xl p-6 md:p-8">
+          <nav class="flex mb-6 text-sm text-dark_text">
+            <ol class="flex items-center space-x-2">
+              <li>
+                <a href="index.html" class="text-gray-500 hover:text-primary transition-colors duration-200"
+                  >Home</a
+                >
+              </li>
+              <li class="flex items-center space-x-2">
+                <i class="fa-solid fa-chevron-right text-gray-500 text-xs"></i>
+                <a href="artikel.html" class="text-gray-500 hover:text-primary transition-colors duration-200"
+                  >Artikel</a
+                >
+              </li>
+              <li class="flex items-center space-x-2">
+                <i class="fa-solid fa-chevron-right text-gray-500 text-xs"></i>
+                <span class="text-primary"
+                  >Detail Artikel</span
+                >
+              </li>
+            </ol>
+          </nav>
+
+          <div class="mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4 text-primary">
+              Adidas Spezial: Ikon Klasik yang Tak Lekang oleh Waktu
+            </h1>
+            <div class="flex flex-wrap items-center text-gray-500 mb-6">
+              <div class="flex items-center mr-6 mb-2">
+                <i class="fa-solid fa-calendar-days text-gray-500 mr-2"></i>
+                <span>20 Juni 2025</span>
+              </div>
+              <div class="flex items-center mr-6 mb-2">
+                <i class="fa-solid fa-tag text-gray-500 mr-2"></i>
+                <span>Sepatu Klasik</span>
+              </div>
+              <div class="flex items-center mb-2">
+                <i class="fa-solid fa-eye text-gray-500 mr-2"></i>
+                <span>3.5K Views</span>
+              </div>
+            </div>
+            <div class="flex items-center mb-6">
+              <img
+                src="https://randomuser.me/api/portraits/men/45.jpg"
+                alt="Author"
+                class="w-12 h-12 rounded-full mr-4 object-cover border-2 border-accent"
+              />
+              <div>
+                <h3 class="font-semibold text-dark_text">Rifqi Firmansyah</h3>
+                <p class="text-gray-600 text-sm">Penggemar Adidas & Penulis</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-8">
+            <img
+              src="Image/adidas 4.png"
+              alt="Featured Image"
+              class="w-full h-auto rounded-lg shadow-md"
+            />
+          </div>
+
+          <div class="prose prose-lg max-w-none text-gray-700">
+            <p class="mb-4">
+              Adidas Handball Spezial, pertama kali diperkenalkan pada tahun 1979 sebagai sepatu performa tinggi untuk atlet bola tangan elit, telah bertransformasi menjadi ikon *fashion* klasik yang dicintai banyak orang. Desainnya yang tak lekang oleh waktu, dengan siluet rendah dan estetika minimalis, menjadikannya pilihan favorit di kalangan penggemar *sneaker* dan penikmat gaya retro.
+            </p>
+
+            <p class="mb-4">
+              Pada awalnya, Spezial dirancang untuk memberikan cengkeraman superior di lapangan *handball indoor* yang licin, dengan sol luar karet gum yang khas. Kini, sol tersebut menjadi salah satu ciri paling dikenali dari sepatu ini, menambah sentuhan *vintage* yang autentik.
+            </p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4 text-primary">
+              Desain Klasik yang Digemari
+            </h2>
+
+            <p class="mb-4">
+              Koleksi Adidas Spezial, atau sering disebut SPZL, dimulai pada tahun 2014 dengan misi menghidupkan kembali dan menafsirkan ulang arsip-arsip Adidas dari era 1970-an dan 1980-an untuk pasar modern. Spezial bukan hanya tentang reproduksi, tetapi juga tentang menangkap esensi dan semangat budaya *terrace* Inggris yang mengadopsi sepatu-sepatu olahraga ini sebagai bagian dari identitas gaya mereka.
+            </p>
+
+            <blockquote class="border-l-4 border-accent pl-4 italic my-6 text-dark_text">
+              "Adidas Spezial bukan sekadar sepatu, ini adalah pernyataan gaya yang menggabungkan warisan olahraga dengan estetika urban yang abadi."
+            </blockquote>
+
+            <p class="mb-4">
+              Setiap rilis Spezial selalu ditunggu-tunggu, menghadirkan kombinasi warna yang unik, material premium seperti suede nubuck, dan detail-detail halus yang membuatnya terasa mewah sekaligus otentik.
+            </p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4 text-primary">Manfaat dan Daya Tarik</h2>
+
+            <p class="mb-4">
+              Daya tarik Spezial terletak pada kesederhanaan dan kemampuan adaptasinya. Sepatu ini dapat dipadukan dengan berbagai gaya, mulai dari kasual hingga semi-formal. Berikut adalah beberapa elemen kunci yang membuat Spezial begitu istimewa:
+            </p>
+
+            <ul class="list-disc pl-6 mb-6 text-gray-700">
+              <li class="mb-2">Desain Timeless: Siluet klasik yang selalu relevan.</li>
+              <li class="mb-2">Material Premium: Penggunaan suede dan kulit berkualitas tinggi.</li>
+              <li class="mb-2">Sol Karet Gum: Ciri khas yang memberikan sentuhan retro.</li>
+              <li class="mb-2">Kenyamanan Harian: Ringan dan nyaman untuk penggunaan sehari-hari.</li>
+            </ul>
+
+            <p class="mb-4">
+              Dari jalanan kota hingga acara santai, Adidas Spezial menawarkan perpaduan sempurna antara gaya dan kenyamanan, menjadikannya pilihan yang solid bagi siapa saja yang menghargai desain orisinal dan kualitas.
+            </p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4 text-primary">Kesimpulan</h2>
+
+            <p class="mb-4">
+              Adidas Spezial telah membuktikan dirinya sebagai lebih dari sekadar sepatu olahraga; ia adalah bagian dari sejarah budaya *sneaker* yang terus berevolusi. Dengan setiap koleksi baru, Spezial terus mempertahankan esensi aslinya sambil beradaptasi dengan tren modern, menjadikannya pilihan yang sempurna bagi mereka yang mencari gaya klasik dengan sentuhan kontemporer.
+            </p>
+
+            <p class="mb-4">
+              Investasikan pada sepasang Adidas Spezial, dan Anda tidak hanya mendapatkan sepatu, tetapi juga sebuah karya seni yang dapat Anda pakai, melangkah dengan gaya dan percaya diri.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-2 mb-10">
+            <span
+              class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm transition-colors duration-200 hover:bg-secondary/20"
+              >Adidas</span
+            >
+            <span
+              class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm transition-colors duration-200 hover:bg-secondary/20"
+              >Spezial</span
+            >
+            <span
+              class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm transition-colors duration-200 hover:bg-secondary/20"
+              >Sneakers</span
+            >
+            <span
+              class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm transition-colors duration-200 hover:bg-secondary/20"
+              >Klasik</span
+            >
+            <span
+              class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm transition-colors duration-200 hover:bg-secondary/20"
+              >Retro</span
+            >
+          </div>
+
+          <div class="border-t border-b border-gray-200 py-6 mb-10">
+            <h3 class="font-semibold text-dark_text mb-4">Bagikan Artikel</h3>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition-colors duration-200 transform hover:scale-110"
+              >
+                <i class="fab fa-facebook-f h-5 w-5"></i>
+              </a>
+              <a
+                href="#"
+                class="bg-blue-400 text-white p-2 rounded-full hover:bg-blue-500 transition-colors duration-200 transform hover:scale-110"
+              >
+                <i class="fab fa-twitter h-5 w-5"></i>
+              </a>
+              <a
+                href="#"
+                class="bg-green-600 text-white p-2 rounded-full hover:bg-green-700 transition-colors duration-200 transform hover:scale-110"
+              >
+                <i class="fab fa-whatsapp h-5 w-5"></i>
+              </a>
+              <a
+                href="#"
+                class="bg-gray-700 text-white p-2 rounded-full hover:bg-gray-800 transition-colors duration-200 transform hover:scale-110"
+              >
+                <i class="fas fa-envelope h-5 w-5"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="bg-light_bg p-6 rounded-xl shadow-md mb-10">
+            <div class="flex items-center mb-4">
+              <img
+                src="https://randomuser.me/api/portraits/men/45.jpg"
+                alt="Author"
+                class="w-16 h-16 rounded-full mr-4 object-cover border-2 border-accent"
+              />
+              <div>
+                <h3 class="text-xl font-bold text-primary">Rifqi Firmansyah</h3>
+                <p class="text-gray-600">Penggemar Adidas & Penulis</p>
+              </div>
+            </div>
+            <p class="text-gray-700">
+              Rifqi adalah seorang penulis dan kolektor *sneaker* yang sangat menggemari produk-produk Adidas, terutama seri klasik seperti Spezial, Samba, dan Gazelle. Ia aktif membagikan wawasan, sejarah, dan tren terbaru seputar dunia *sneaker* Adidas.
+            </p>
+          </div>
+
+          <div class="mb-10">
+            <h2 class="text-2xl font-bold mb-6 text-primary">Artikel Terkait</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 hover:shadow-2xl transition-all duration-300">
+                <img src="Image/samba 1.png" alt="Related Article 1" class="w-full h-40 object-cover">
+                <div class="p-4">
+                  <h3 class="font-semibold mb-2 text-dark_text">
+                    Adidas Samba: Dari Lapangan Hijau ke Ikon Gaya Hidup
+                  </h3>
+                  <p class="text-gray-500 text-sm mb-2">18 Juni 2025</p>
+                  <a href="detail-artikel.html" class="text-primary font-medium hover:underline transition-colors duration-200">Baca Selengkapnya</a>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 hover:shadow-2xl transition-all duration-300">
+                <img src="Image/gazzele 2.png" alt="Related Article 2" class="w-full h-40 object-cover">
+                <div class="p-4">
+                  <h3 class="font-semibold mb-2 text-dark_text">
+                    Adidas Gazelle: Sejarah dan Evolusi Gaya Ikonik
+                  </h3>
+                  <p class="text-gray-500 text-sm mb-2">15 Juni 2025</p>
+                  <a href="detail-artikel.html" class="text-primary font-medium hover:underline transition-colors duration-200">Baca Selengkapnya</a>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 hover:shadow-2xl transition-all duration-300">
+                <img src="Image/adidas 1.png" alt="Related Article 3" class="w-full h-40 object-cover">
+                <div class="p-4">
+                  <h3 class="font-semibold mb-2 text-dark_text">
+                    Memilih Sepatu Adidas yang Tepat untuk Setiap Kebutuhan Anda
+                  </h3>
+                  <p class="text-gray-500 text-sm mb-2">10 Juni 2025</p>
+                  <a href="detail-artikel.html" class="text-primary font-medium hover:underline transition-colors duration-200">Baca Selengkapnya</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-primary text-white py-10">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-accent">UrbanStep</h3>
+            <p class="mb-4 text-gray-400">
+              adalah destinasi terbaik untuk kamu yang ingin melangkah lebih
+              jauh. Kami menghadirkan sepatu Adidas original pilihan, untuk
+              penampilan yang lebih casual.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200 transform hover:scale-110">
+                <i class="fab fa-twitter h-6 w-6"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/hfdz24_?igsh=dnFmanMxeThva2t2"
+                class="text-gray-400 hover:text-accent transition-colors duration-200 transform hover:scale-110"
+              >
+                <i class="fab fa-instagram h-6 w-6"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200 transform hover:scale-110">
+                <i class="fab fa-facebook-f h-6 w-6"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-white">Quick Links</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li><a href="index.html" class="hover:text-accent transition-colors duration-200">Home</a></li>
+              <li>
+                <a href="dashboard.html" class="hover:text-accent transition-colors duration-200">Dashboard</a>
+              </li>
+              <li>
+                <a href="artikel.html" class="hover:text-accent transition-colors duration-200">Articles</a>
+              </li>
+              <li>
+                <a href="produk.html" class="hover:text-accent transition-colors duration-200">Products</a>
+              </li>
+              <li>
+                <a href="keranjang.html" class="hover:text-accent transition-colors duration-200">Cart</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-white">Contact Us</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li class="flex items-start">
+                <i class="fa-solid fa-location-dot h-6 w-6 mr-2 flex-shrink-0"></i>
+                <span>Srikana Street, Surabaya, Indonesia</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-envelope h-6 w-6 mr-2 flex-shrink-0"></i>
+                <span>urbnstp@gmail.com</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-phone h-6 w-6 mr-2 flex-shrink-0"></i>
+                <span>081234567890</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-secondary mt-8 pt-8 text-center text-gray-500">
+          <p>&copy; 2025 UrbanStep. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            duration: 1000,
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById("mobile-menu-button");
+            const mobileMenu = document.getElementById("mobile-menu");
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener("click", () => {
+                    mobileMenu.classList.toggle("hidden");
+                });
+            }
+
+            // Tab functionality (Description vs Reviews)
+            const tabButtons = document.querySelectorAll(".tab-btn");
+            const tabContents = document.querySelectorAll(".tab-content");
+
+            // Activate the first tab by default on load
+            if (tabButtons.length > 0) {
+                tabButtons[0].classList.add("text-primary", "border-b-2", "border-primary", "active");
+                tabButtons[0].classList.remove("text-gray-600", "hover:text-primary", "hover:border-primary", "border-b-2", "border-transparent");
+                tabContents[0].classList.remove("hidden");
+            }
+
+            tabButtons.forEach((button) => {
+                button.addEventListener("click", function () {
+                    const targetId = this.dataset.target; // 'description' or 'reviews'
+
+                    tabButtons.forEach(btn => {
+                        // Reset all buttons to inactive state
+                        btn.classList.remove(
+                            "text-primary", "border-b-2", "border-primary", "active"
+                        );
+                        btn.classList.add("text-gray-600", "hover:text-primary", "hover:border-primary", "border-b-2", "border-transparent");
+                    });
+
+                    tabContents.forEach(content => {
+                        content.classList.add("hidden");
+                    });
+
+                    // Set clicked button to active state
+                    this.classList.add(
+                        "text-primary", "border-b-2", "border-primary", "active"
+                    );
+                    this.classList.remove("text-gray-600", "hover:text-primary", "hover:border-primary", "border-b-2", "border-transparent"); 
+
+                    // Show corresponding tab content
+                    document.getElementById(`tab-${targetId}`).classList.remove("hidden");
+                });
+            });
+        });
+    </script>
+</body>
+</html>

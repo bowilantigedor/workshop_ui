@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Produk Adidas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        function toggleAddForm() {
+            const form = document.getElementById('addProductForm');
+            form.classList.toggle('hidden');
+            window.scrollTo({
+                top: form.offsetTop - 20,
+                behavior: 'smooth'
+            });
+        }
+
+        function addProduct(event) {
+            event.preventDefault();
+            
+            // Ambil nilai dari form
+            const productName = document.getElementById('productName').value;
+            const productStyle = document.getElementById('productStyle').value;
+            const productCategory = document.getElementById('productCategory').value;
+            const productSizes = document.getElementById('productSizes').value;
+            const productPrice = document.getElementById('productPrice').value;
+            const productStock = document.getElementById('productStock').value;
+            const productStatus = document.getElementById('productStatus').value;
+            
+            // Buat baris produk baru
+            const tableBody = document.querySelector('tbody');
+            const newRow = document.createElement('tr');
+            newRow.className = 'px-6 py-4 whitespace-nowrap';
+            
+            newRow.innerHTML = `
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex-shrink-0 h-10 w-10">
+                        <img class="h-10 w-10 rounded" src="https://via.placeholder.com/40" alt="${productName}">
+                    </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">${productName}</div>
+                    <div class="text-sm text-gray-500">Style: ${productStyle}</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gray-900">${productCategory}</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gray-900">${productSizes}</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gray-900">Rp${parseInt(productPrice).toLocaleString('id-ID')}</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gray-900">${productStock}</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${getStatusClass(productStatus)}">
+                        ${productStatus}
+                    </span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-blue-600 hover:text-blue-900 mr-3"><i class="fas fa-edit"></i></button>
+                    <button class="text-red-600 hover:text-red-900"><i class="fas fa-trash"></i></button>
+                </td>
+            `;
+            
+            // Tambahkan ke tabel
+            tableBody.prepend(newRow);
+            
+            // Reset form
+            document.getElementById('addProductForm').reset();
+            
+            // Sembunyikan form
+            toggleAddForm();
+            
+            // Tampilkan notifikasi
+            alert('Produk berhasil ditambahkan!');
+        }
+        
+        function getStatusClass(status) {
+            switch(status) {
+                case 'Tersedia': return 'bg-green-100 text-green-800';
+                case 'Habis': return 'bg-red-100 text-red-800';
+                case 'Pre-order': return 'bg-yellow-100 text-yellow-800';
+                default: return 'bg-gray-100 text-gray-800';
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="hidden md:flex md:flex-shrink-0">
+            <div class="flex flex-col w-64 bg-gray-800 rounded-r-2xl shadow-lg">
+                <div class="flex items-center justify-center h-16 bg-gray-900 rounded-tr-2xl">
+                    <span class="text-white font-bold text-xl tracking-wide">URBAN STEP</span>
+                </div>
+                <nav class="flex flex-col flex-grow pt-5 px-4 space-y-1">
+                    <a
+                        href="dashboard.html"
+                        class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-lg transition"
+                    >
+                        <i class="fas fa-tachometer-alt mr-3"></i>
+                        Dashboard
+                    </a>
+                    <a
+                        href="#"
+                        class="flex items-center px-4 py-3 text-sm font-medium text-white bg-gray-700 rounded-lg transition"
+                    >
+                        <i class="fas fa-shoe-prints mr-3"></i>
+                        Kelola Produk
+                    </a>
+                    <a
+                        href="kelola-pengguna.html"
+                        class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-lg transition"
+                    >
+                        <i class="fas fa-users mr-3"></i>
+                        Kelola Pengguna
+                    </a>
+                    <a
+                        href="kelola-artikel.html"
+                        class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-lg transition"
+                    >
+                        <i class="fas fa-chart-line mr-3"></i>
+                        Kelola Artikel
+                    </a>
+                    <a
+                        href="kelola-transaksi.html"
+                        class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-lg transition"
+                    >
+                        <i class="fas fa-cog mr-3"></i>
+                        Kelola Transaksi
+                    </a>
+                </nav>
+                <div class="p-4 mt-auto">
+                    <div class="flex items-center p-4 bg-gray-700 rounded-lg">
+                        <img
+                            class="w-10 h-10 rounded-full border-2 border-gray-600"
+                            src="/Image/profile 2.jpgx`x`"
+                            alt="User"
+                        />
+                        <div class="ml-3">
+                            <p class="text-sm font-medium text-white">Admin Urban</p>
+                            <p class="text-xs font-medium text-gray-300">
+                                admin@gmail.com
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!-- Main Content -->
+        <main class="flex-1 p-6">
+            <!-- Header -->
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-8 gap-4">
+                <h1 class="text-3xl font-bold text-gray-800">
+                    <span class="text-black">URBAN</span> <span class="text-gray-600">Product Management</span>
+                </h1>
+                <div class="flex items-center space-x-4">
+                    <button onclick="toggleAddForm()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center shadow">
+                        <i class="fas fa-plus mr-2"></i> Tambah Produk
+                    </button>
+                    <div class="relative">
+                        <input type="text" placeholder="Cari produk..." class="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Tambah Produk (Hidden by default) -->
+            <div id="addProductForm" class="hidden bg-white rounded-lg shadow p-6 mb-6">
+                <h2 class="text-xl font-semibold mb-4">Tambah Produk Baru</h2>
+                <form onsubmit="addProduct(event)">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="productName" class="block text-sm font-medium text-gray-700 mb-1">Nama Produk</label>
+                            <input type="text" id="productName" required class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="productStyle" class="block text-sm font-medium text-gray-700 mb-1">Kode Style</label>
+                            <input type="text" id="productStyle" required class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="productCategory" class="block text-sm font-medium text-gray-700 mb-1">Kategori</label>
+                            <select id="productCategory" required class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Pilih Kategori</option>
+                                <option value="Running">Running</option>
+                                <option value="Basketball">Basketball</option>
+                                <option value="Football">Football</option>
+                                <option value="Lifestyle">Lifestyle</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="productSizes" class="block text-sm font-medium text-gray-700 mb-1">Ukuran Tersedia</label>
+                            <input type="text" id="productSizes" placeholder="Contoh: 36-44" required class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="productPrice" class="block text-sm font-medium text-gray-700 mb-1">Harga (Rp)</label>
+                            <input type="number" id="productPrice" required class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="productStock" class="block text-sm font-medium text-gray-700 mb-1">Stok</label>
+                            <input type="number" id="productStock" required class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="productStatus" class="block text-sm font-medium text-gray-700 mb-1">Status</label>
+                            <select id="productStatus" required class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="Tersedia">Tersedia</option>
+                                <option value="Habis">Habis</option>
+                                <option value="Pre-order">Pre-order</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="productImage" class="block text-sm font-medium text-gray-700 mb-1">Gambar Produk</label>
+                            <input type="file" id="productImage" class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                    </div>
+                    <div class="mt-6 flex justify-end space-x-3">
+                        <button type="button" onclick="toggleAddForm()" class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-lg">
+                            Batal
+                        </button>
+                        <button type="submit" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg">
+                            Simpan Produk
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Filter Section -->
+            <div class="bg-white rounded-lg shadow p-4 mb-6">
+                <div class="flex flex-wrap items-center gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Kategori</label>
+                        <select class="border rounded-lg px-3 py-2 w-40">
+                            <option>Semua</option>
+                            <option>Running</option>
+                            <option>Basketball</option>
+                            <option>Football</option>
+                            <option>Lifestyle</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Ukuran</label>
+                        <select class="border rounded-lg px-3 py-2 w-40">
+                            <option>Semua</option>
+                            <option>36-38</option>
+                            <option>39-41</option>
+                            <option>42-44</option>
+                            <option>45+</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Harga</label>
+                        <select class="border rounded-lg px-3 py-2 w-40">
+                            <option>Semua</option>
+                            <option>Rp0 - Rp1jt</option>
+                            <option>Rp1jt - Rp2jt</option>
+                            <option>Rp2jt+</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Status</label>
+                        <select class="border rounded-lg px-3 py-2 w-40">
+                            <option>Semua</option>
+                            <option>Tersedia</option>
+                            <option>Habis</option>
+                            <option>Pre-order</option>
+                        </select>
+                    </div>
+                    <button class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-lg mt-6">
+                        Terapkan Filter
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product Table -->
+            <div class="bg-white rounded-lg shadow overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Gambar
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Nama Produk
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Kategori
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Ukuran
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Harga
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Stok
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Status
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Aksi
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <!-- Product rows will be added here dynamically -->
+                            <!-- Product 1 -->
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex-shrink-0 h-10 w-10">
+                                        <img class="h-10 w-10 rounded" src="/image/gazzele 1.png" alt="Nike Air Force 1">
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm font-medium text-gray-900">Adidas Gazzele Indoor</div>
+                                    <div class="text-sm text-gray-500">Style: CW2288-111</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">Lifestyle</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">36-44</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">Rp1,799,000</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">15</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                        Tersedia
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                    <button class="text-blue-600 hover:text-blue-900 mr-3"><i class="fas fa-edit"></i></button>
+                                    <button class="text-red-600 hover:text-red-900"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Pagination -->
+                <div class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+                    <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                        <div>
+                            <p class="text-sm text-gray-700">
+                                Menampilkan
+                                <span class="font-medium">1</span>
+                                sampai
+                                <span class="font-medium">4</span>
+                                dari
+                                <span class="font-medium">12</span>
+                                hasil
+                            </p>
+                        </div>
+                        <div>
+                            <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                                <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                    <span class="sr-only">Previous</span>
+                                    <i class="fas fa-chevron-left"></i>
+                                </a>
+                                <a href="#" aria-current="page" class="z-10 bg-blue-50 border-blue-500 text-blue-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                                    1
+                                </a>
+                                <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                                    2
+                                </a>
+                                <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                                    3
+                                </a>
+                                <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                    <span class="sr-only">Next</span>
+                                    <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

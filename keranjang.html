@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keranjang Belanja | UrbanStep</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Primary color: A deep, rich blue / Charcoal
+                        primary: "#1A202C", 
+                        // Secondary: A soft, muted gray-blue
+                        secondary: "#4A5568", 
+                        // Accent: A vibrant, electric lime green for pop
+                        accent: "#00FF00", 
+                        // Backgrounds and text
+                        light_bg: "#E2E8F0", // Light Blue-Gray for main body background
+                        dark_text: "#2D3748", // Darker Gray for general text
+                        white_text_soft: "#CBD5E0", // Soft white for text on dark backgrounds
+                    },
+                },
+            },
+        };
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="Image/Hero.png" type="image/png" />
+</head>
+<body class="bg-light_bg text-dark_text">
+    <header class="bg-primary text-white shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-accent text-3xl font-bold">UrbanStep</a>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="hover:text-accent transition-colors duration-200">Home</a></li>
+                    <li><a href="artikel.html" class="hover:text-accent transition-colors duration-200">Artikel</a></li>
+                    <li><a href="produk.html" class="hover:text-accent transition-colors duration-200">Produk</a></li>
+                    <li><a href="keranjang.html" class="text-accent transition-colors duration-200">Keranjang</a></li>
+                    <li><a href="history.html" class="hover:text-accent flex items-center transition-colors duration-200">History Pembayaran</a></li>
+                </ul>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="keranjang.html" class="relative hover:text-accent transition-colors duration-200">
+                    <i class="fas fa-shopping-cart h-6 w-6"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-accent text-primary_text text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </a>
+                <a href="login.html" class="hover:text-accent transition-colors duration-200">Login</a>
+                <a href="dashboard.html" class="hover:text-accent transition-colors duration-200"><i class="fa-solid fa-user-tie text-white"></i></a>
+                <button id="mobile-menu-button" class="md:hidden text-white hover:text-accent transition-colors duration-200">
+                    <i class="fas fa-bars h-6 w-6"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <ul class="bg-primary px-4 py-2 text-white">
+                <li><a href="index.html" class="block py-2 hover:text-accent transition-colors duration-200">Home</a></li>
+                <li><a href="artikel.html" class="block py-2 hover:text-accent transition-colors duration-200">Artikel</a></li>
+                <li><a href="produk.html" class="block py-2 hover:text-accent transition-colors duration-200">Produk</a></li>
+                <li><a href="keranjang.html" class="block py-2 hover:text-accent transition-colors duration-200">Keranjang</a></li>
+                <li><a href="history.html" class="block py-2 hover:text-accent transition-colors duration-200">History Pembayaran</a></li>
+                <li><a href="login.html" class="block py-2 hover:text-accent transition-colors duration-200">Login</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section 
+        class="relative h-96 bg-cover bg-center flex items-center justify-center" 
+        style="background-image: url('https://img.spartoo.eu/branding/U10652_responsive/images/main.jpg');"
+    >
+        <div class="absolute inset-0 bg-primary opacity-70"></div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl font-bold mb-4 text-white">Keranjang Belanja</h1>
+            <p class="text-xl text-white">Periksa barang anda sebelum Checkout</p>
+        </div>
+    </section>
+
+    <section class="py-12 bg-light_bg">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <div class="lg:w-2/3">
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-6">
+                        <div class="p-6">
+                            <h2 class="text-2xl font-bold mb-6 text-primary">Barang dalam Keranjang (3)</h2>
+                            
+                            <div class="dynamic-cart-items-container">
+                                <div class="flex flex-col md:flex-row border-b border-gray-200 pb-6 mb-6">
+                                    <div class="md:w-1/4 mb-4 md:mb-0">
+                                        <img src="Image/spezial 1.png" alt="Adidas Handball Spezial" class="w-full h-auto rounded-lg">
+                                    </div>
+                                    <div class="md:w-3/4 md:pl-6 flex flex-col">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <h3 class="text-lg font-semibold text-dark_text">Adidas Handball Spezial</h3>
+                                            <button class="text-gray-500 hover:text-primary transition-colors duration-200 remove-item-btn" data-id="1">
+                                                <i class="fas fa-trash-alt h-5 w-5"></i>
+                                            </button>
+                                        </div>
+                                        <p class="text-gray-500 mb-2">Warna: Biru Ukuran: 41</p>
+                                        <div class="flex items-center mb-4">
+                                            <span class="text-gray-600 mr-2">Jumlah:</span>
+                                            <div class="flex items-center">
+                                                <button class="w-8 h-8 bg-gray-200 rounded-l-md flex items-center justify-center hover:bg-gray-300 transition-colors duration-200 decrease-qty-btn" data-id="1">
+                                                    <i class="fas fa-minus h-4 w-4"></i>
+                                                </button>
+                                                <input type="number" value="1" min="1" class="w-12 h-8 border-y border-gray-300 text-center text-dark_text focus:outline-none focus:ring-1 focus:ring-primary quantity-input" data-id="1">
+                                                <button class="w-8 h-8 bg-gray-200 rounded-r-md flex items-center justify-center hover:bg-gray-300 transition-colors duration-200 increase-qty-btn" data-id="1">
+                                                    <i class="fas fa-plus h-4 w-4"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="mt-auto flex justify-between items-center">
+                                            <span class="text-gray-500">Rp 3.599.000 / item</span>
+                                            <span class="text-xl font-bold text-primary">Rp 3.599.000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex flex-col md:flex-row border-b border-gray-200 pb-6 mb-6">
+                                    <div class="md:w-1/4 mb-4 md:mb-0">
+                                        <img src="Image/samba 1.png" alt="Adidas Samba OG" class="w-full h-auto rounded-lg">
+                                    </div>
+                                    <div class="md:w-3/4 md:pl-6 flex flex-col">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <h3 class="text-lg font-semibold text-dark_text">Adidas Samba OG</h3>
+                                            <button class="text-gray-500 hover:text-primary transition-colors duration-200 remove-item-btn" data-id="2">
+                                                <i class="fas fa-trash-alt h-5 w-5"></i>
+                                            </button>
+                                        </div>
+                                        <p class="text-gray-500 mb-2">Warna: Hitam & Putih Ukuran: 41</p>
+                                        <div class="flex items-center mb-4">
+                                            <span class="text-gray-600 mr-2">Jumlah:</span>
+                                            <div class="flex items-center">
+                                                <button class="w-8 h-8 bg-gray-200 rounded-l-md flex items-center justify-center hover:bg-gray-300 transition-colors duration-200 decrease-qty-btn" data-id="2">
+                                                    <i class="fas fa-minus h-4 w-4"></i>
+                                                </button>
+                                                <input type="number" value="1" min="1" class="w-12 h-8 border-y border-gray-300 text-center text-dark_text focus:outline-none focus:ring-1 focus:ring-primary quantity-input" data-id="2">
+                                                <button class="w-8 h-8 bg-gray-200 rounded-r-md flex items-center justify-center hover:bg-gray-300 transition-colors duration-200 increase-qty-btn" data-id="2">
+                                                    <i class="fas fa-plus h-4 w-4"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="mt-auto flex justify-between items-center">
+                                            <span class="text-gray-500">Rp 2.849.000 / item</span>
+                                            <span class="text-xl font-bold text-primary">Rp 2.849.000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex flex-col md:flex-row">
+                                    <div class="md:w-1/4 mb-4 md:mb-0">
+                                        <img src="Image/gazzele 1.png" alt="Adidas Gazelle" class="w-full h-auto rounded-lg">
+                                    </div>
+                                    <div class="md:w-3/4 md:pl-6 flex flex-col">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <h3 class="text-lg font-semibold text-dark_text">Adidas Gazelle</h3>
+                                            <button class="text-gray-500 hover:text-primary transition-colors duration-200 remove-item-btn" data-id="3">
+                                                <i class="fas fa-trash-alt h-5 w-5"></i>
+                                            </button>
+                                        </div>
+                                        <p class="text-gray-500 mb-2">Warna: Putih, Ukuran: 41</p>
+                                        <div class="flex items-center mb-4">
+                                            <span class="text-gray-600 mr-2">Jumlah:</span>
+                                            <div class="flex items-center">
+                                                <button class="w-8 h-8 bg-gray-200 rounded-l-md flex items-center justify-center hover:bg-gray-300 transition-colors duration-200 decrease-qty-btn" data-id="3">
+                                                    <i class="fas fa-minus h-4 w-4"></i>
+                                                </button>
+                                                <input type="number" value="2" min="1" class="w-12 h-8 border-y border-gray-300 text-center text-dark_text focus:outline-none focus:ring-1 focus:ring-primary quantity-input" data-id="3">
+                                                <button class="w-8 h-8 bg-gray-200 rounded-r-md flex items-center justify-center hover:bg-gray-300 transition-colors duration-200 increase-qty-btn" data-id="3">
+                                                    <i class="fas fa-plus h-4 w-4"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="mt-auto flex justify-between items-center">
+                                            <span class="text-gray-500">Rp 4.089.000 / item</span>
+                                            <span class="text-xl font-bold text-primary">Rp 4.089.000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-between items-center mt-6">
+                        <a href="produk.html" class="flex items-center text-primary hover:underline transition-colors duration-200">
+                            <i class="fas fa-arrow-left h-5 w-5 mr-2"></i>
+                            Lanjutkan Belanja
+                        </a>
+                        <button class="text-red-500 hover:text-red-700 flex items-center transition-colors duration-200" id="clear-cart-button">
+                            <i class="fas fa-trash-alt h-5 w-5 mr-2"></i>
+                            Kosongkan Keranjang
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/3">
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden sticky top-6">
+                        <div class="p-6">
+                            <h2 class="text-2xl font-bold mb-6 text-primary">Ringkasan Pesanan</h2>
+                            
+                            <div class="space-y-4 mb-6">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Subtotal (3 items)</span>
+                                    <span class="font-medium text-dark_text cart-summary-subtotal">Rp10.537.000</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Diskon</span>
+                                    <span class="font-medium text-red-500 cart-summary-discount">- Rp 500.000</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Biaya Pengiriman</span>
+                                    <span class="font-medium text-dark_text cart-summary-shipping">Rp 20.000</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Pajak (10%)</span>
+                                    <span class="font-medium text-dark_text cart-summary-tax">Rp 1.021.600</span>
+                                </div>
+                                <div class="border-t border-gray-200 pt-4 flex justify-between">
+                                    <span class="text-lg font-bold text-primary">Total</span>
+                                    <span class="text-lg font-bold text-primary cart-summary-total">Rp11.078.600</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="promo-code" class="block text-gray-700 font-medium mb-2">Kode Promo</label>
+                                <div class="flex">
+                                    <input type="text" id="promo-code" placeholder="Masukkan kode promo" class="flex-1 px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-primary text-dark_text">
+                                    <button class="bg-primary hover:bg-secondary text-white px-4 py-2 rounded-r-md transition-colors duration-200">Terapkan</button>
+                                </div>
+                            </div>
+                            
+                            <a href="pembayaran.html" class="block w-full bg-primary hover:bg-secondary text-white text-center py-3 rounded-md font-medium transition-colors duration-200 transform hover:scale-105">Lanjutkan ke Pembayaran</a>
+                            
+                            <div class="mt-6 flex items-center justify-center text-gray-500 text-sm">
+                                <i class="fas fa-lock h-4 w-4 mr-2"></i>
+                                Pembayaran Aman & Terenkripsi
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-primary text-white py-10">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-accent">UrbanStep</h3>
+            <p class="mb-4 text-gray-400">
+              adalah destinasi terbaik untuk kamu yang ingin melangkah lebih
+              jauh. Kami menghadirkan sepatu Adidas original pilihan, untuk
+              penampilan yang lebih casual.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200 transform hover:scale-110">
+                <i class="fab fa-twitter h-6 w-6"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/hfdz24_?igsh=dnFmanMxeThva2t2"
+                class="text-gray-400 hover:text-accent transition-colors duration-200 transform hover:scale-110"
+              >
+                <i class="fab fa-instagram h-6 w-6"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200 transform hover:scale-110">
+                <i class="fab fa-facebook-f h-6 w-6"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-white">Quick Links</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li><a href="index.html" class="hover:text-accent transition-colors duration-200">Home</a></li>
+              <li>
+                <a href="dashboard.html" class="hover:text-accent transition-colors duration-200">Dashboard</a>
+              </li>
+              <li>
+                <a href="artikel.html" class="hover:text-accent transition-colors duration-200">Articles</a>
+              </li>
+              <li>
+                <a href="produk.html" class="hover:text-accent transition-colors duration-200">Products</a>
+              </li>
+              <li>
+                <a href="keranjang.html" class="hover:text-accent transition-colors duration-200">Cart</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-white">Contact Us</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li class="flex items-start">
+                <i class="fa-solid fa-location-dot h-6 w-6 mr-2 flex-shrink-0"></i>
+                <span>Srikana Street, Surabaya, Indonesia</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-envelope h-6 w-6 mr-2 flex-shrink-0"></i>
+                <span>urbnstp@gmail.com</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-phone h-6 w-6 mr-2 flex-shrink-0"></i>
+                <span>081234567890</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-secondary mt-8 pt-8 text-center text-gray-500">
+          <p>&copy; 2025 UrbanStep. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        once: true,
+        duration: 1000,
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        if (mobileMenuButton && mobileMenu) {
+          mobileMenuButton.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+          });
+        }
+
+        const cartItemsContainer = document.querySelector('.lg\\:w-2\\/3 > .bg-white > .p-6'); 
+        const clearCartButton = document.getElementById('clear-cart-button');
+
+        function updateCartDisplay() {
+            let cart = JSON.parse(localStorage.getItem('urbanstep_cart')) || [];
+            
+            // This selects the specific div where dynamic items should be rendered.
+            // If it doesn't exist, it means the structure is slightly different, or it's the empty state path
+            let dynamicItemsContainer = document.querySelector('.dynamic-cart-items-container');
+            if (!dynamicItemsContainer) {
+                // Create the container if it doesn't exist. This ensures we have a stable target.
+                dynamicItemsContainer = document.createElement('div');
+                dynamicItemsContainer.className = 'dynamic-cart-items-container space-y-6'; // Added space-y-6 for spacing
+                // Insert it right after the h2 in the p-6 div
+                const h2Element = cartItemsContainer.querySelector('h2');
+                if (h2Element) {
+                    h2Element.parentNode.insertBefore(dynamicItemsContainer, h2Element.nextSibling);
+                } else {
+                    cartItemsContainer.appendChild(dynamicItemsContainer); // Fallback if h2 isn't found
+                }
+            }
+            dynamicItemsContainer.innerHTML = ''; // Clear current display before re-rendering
+
+            if (cart.length === 0) {
+                dynamicItemsContainer.innerHTML = `
+                    <div class="text-center py-8">
+                        <p class="text-gray-500 text-lg mb-4">Keranjang belanja Anda kosong.</p>
+                        <a href="produk.html" class="bg-primary text-white px-6 py-3 rounded-md font-medium hover:bg-secondary transition-colors duration-200">
+                            <i class="fas fa-shopping-bag mr-2"></i> Mulai Belanja
+                        </a>
+                    </div>
+                `;
+                document.querySelector('.lg\\:w-1\\/3').style.display = 'none'; // Hide order summary
+                if(clearCartButton) clearCartButton.style.display = 'none';
+                document.querySelector('h2.text-2xl.font-bold').textContent = `Barang dalam Keranjang (0)`;
+                return;
+            } else {
+                 document.querySelector('.lg\\:w-1\\/3').style.display = 'block'; // Show order summary
+                 if(clearCartButton) clearCartButton.style.display = 'flex'; // Show clear cart button (if it's a flex container)
+            }
+
+            let totalItemsCount = 0;
+            cart.forEach(item => {
+                totalItemsCount += item.quantity;
+                const itemElement = document.createElement('div');
+                itemElement.className = 'flex flex-col md:flex-row border-b border-gray-200 pb-6 mb-6 last:border-b-0 last:pb-0 last:mb-0';
+                itemElement.innerHTML = `
+                    <div class="md:w-1/4 mb-4 md:mb-0">
+                        <img src="${item.image}" alt="${item.name}" class="w-full h-auto rounded-lg shadow-sm">
+                    </div>
+                    <div class="md:w-3/4 md:pl-6 flex flex-col">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-semibold text-dark_text">${item.name}</h3>
+                            <button class="text-gray-500 hover:text-primary transition-colors duration-200 remove-item-btn" data-id="${item.id}">
+                                <i class="fas fa-trash-alt h-5 w-5"></i>
+                            </button>
+                        </div>
+                        <p class="text-gray-500 mb-2">Ukuran: N/A</p> 
+                        <div class="flex items-center mb-4">
+                            <span class="text-gray-600 mr-2">Jumlah:</span>
+                            <div class="flex items-center">
+                                <button class="w-8 h-8 bg-gray-200 rounded-l-md flex items-center justify-center hover:bg-gray-300 transition-colors duration-200 decrease-qty-btn" data-id="${item.id}">
+                                    <i class="fas fa-minus h-4 w-4"></i>
+                                </button>
+                                <input type="number" value="${item.quantity}" min="1" class="w-12 h-8 border-y border-gray-300 text-center text-dark_text focus:outline-none focus:ring-1 focus:ring-primary quantity-input" data-id="${item.id}">
+                                <button class="w-8 h-8 bg-gray-200 rounded-r-md flex items-center justify-center hover:bg-gray-300 transition-colors duration-200 increase-qty-btn" data-id="${item.id}">
+                                    <i class="fas fa-plus h-4 w-4"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mt-auto flex justify-between items-center">
+                            <span class="text-gray-500">Rp ${parseInt(item.price).toLocaleString('id-ID')} / item</span>
+                            <span class="text-xl font-bold text-primary">Rp ${(parseInt(item.price) * item.quantity).toLocaleString('id-ID')}</span>
+                        </div>
+                    </div>
+                `;
+                dynamicItemsContainer.appendChild(itemElement);
+            });
+
+            document.querySelector('h2.text-2xl.font-bold').textContent = `Barang dalam Keranjang (${totalItemsCount})`;
+            attachCartEventListeners();
+            updateCartSummary();
+        }
+
+        function attachCartEventListeners() {
+            document.querySelectorAll('.remove-item-btn').forEach(button => {
+                button.onclick = function() {
+                    const productId = this.dataset.id;
+                    let cart = JSON.parse(localStorage.getItem('urbanstep_cart')) || [];
+                    cart = cart.filter(item => item.id !== productId);
+                    localStorage.setItem('urbanstep_cart', JSON.stringify(cart));
+                    updateCartDisplay();
+                };
+            });
+
+            document.querySelectorAll('.decrease-qty-btn').forEach(button => {
+                button.onclick = function() {
+                    const productId = this.dataset.id;
+                    let cart = JSON.parse(localStorage.getItem('urbanstep_cart')) || [];
+                    const itemIndex = cart.findIndex(item => item.id === productId);
+                    if (itemIndex > -1) {
+                        if (cart[itemIndex].quantity > 1) {
+                            cart[itemIndex].quantity -= 1;
+                        } else {
+                            // If quantity is 1 and decreased, remove item
+                            cart = cart.filter(item => item.id !== productId);
+                        }
+                        localStorage.setItem('urbanstep_cart', JSON.stringify(cart));
+                        updateCartDisplay();
+                    }
+                };
+            });
+
+            document.querySelectorAll('.increase-qty-btn').forEach(button => {
+                button.onclick = function() {
+                    const productId = this.dataset.id;
+                    let cart = JSON.parse(localStorage.getItem('urbanstep_cart')) || [];
+                    const itemIndex = cart.findIndex(item => item.id === productId);
+                    if (itemIndex > -1) {
+                        cart[itemIndex].quantity += 1;
+                        localStorage.setItem('urbanstep_cart', JSON.stringify(cart));
+                        updateCartDisplay();
+                    }
+                };
+            });
+
+            document.querySelectorAll('.quantity-input').forEach(input => {
+                input.onchange = function() {
+                    const productId = this.dataset.id;
+                    const newQuantity = parseInt(this.value);
+                    let cart = JSON.parse(localStorage.getItem('urbanstep_cart')) || [];
+                    const itemIndex = cart.findIndex(item => item.id === productId);
+
+                    if (itemIndex > -1) {
+                        if (newQuantity > 0) {
+                            cart[itemIndex].quantity = newQuantity;
+                        } else {
+                            cart = cart.filter(item => item.id !== productId); 
+                        }
+                        localStorage.setItem('urbanstep_cart', JSON.stringify(cart));
+                        updateCartDisplay();
+                    }
+                };
+            });
+            
+            if (clearCartButton) {
+                clearCartButton.onclick = function() {
+                    localStorage.removeItem('urbanstep_cart');
+                    updateCartDisplay();
+                };
+            }
+        }
+
+        function updateCartSummary() {
+            let cart = JSON.parse(localStorage.getItem('urbanstep_cart')) || [];
+            let subtotal = 0;
+            let totalItems = 0;
+
+            cart.forEach(item => {
+                subtotal += parseInt(item.price) * item.quantity;
+                totalItems += item.quantity;
+            });
+
+            const discountAmount = (subtotal >= 10000000) ? 500000 : 0; 
+            const shippingCost = 20000; 
+            const taxRate = 0.10; 
+
+            let calculatedTax = Math.round((subtotal - discountAmount + shippingCost) * taxRate);
+            let finalTotal = subtotal - discountAmount + shippingCost + calculatedTax;
+
+            // Update summary elements (using string literals for correct formatting)
+            document.querySelector('.cart-summary-subtotal').textContent = `Rp ${subtotal.toLocaleString('id-ID')}`;
+            document.querySelector('.cart-summary-discount').textContent = `- Rp ${discountAmount.toLocaleString('id-ID')}`;
+            document.querySelector('.cart-summary-shipping').textContent = `Rp ${shippingCost.toLocaleString('id-ID')}`;
+            document.querySelector('.cart-summary-tax').textContent = `Rp ${calculatedTax.toLocaleString('id-ID')}`;
+            document.querySelector('.cart-summary-total').textContent = `Rp ${finalTotal.toLocaleString('id-ID')}`;
+
+            // Update cart items count in the main title
+            document.querySelector('h2.text-2xl.font-bold').textContent = `Barang dalam Keranjang (${totalItems})`;
+
+            // Update cart count in header navigation
+            const headerCartCountSpan = document.getElementById('cart-count');
+            if (headerCartCountSpan) {
+                headerCartCountSpan.textContent = totalItems;
+            }
+        }
+
+        // Initial load of cart display
+        updateCartDisplay();
+      });
+    </script>
+</body>
+</html>
